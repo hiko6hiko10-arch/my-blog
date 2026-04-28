@@ -8,11 +8,14 @@
     body { font-family: sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
     h1 { color: #2c5f2e; border-bottom: 3px solid #2c5f2e; padding-bottom: 10px; }
     .header-img { width: 100%; max-height: 300px; object-fit: cover; border-radius: 12px; margin-bottom: 20px; }
-    .post { border: 1px solid #ddd; padding: 20px; margin: 20px 0; border-radius: 8px; }
-    .post h2 { color: #333; }
-    .post h2 a { color: #2c5f2e; text-decoration: none; }
-    .post h2 a:hover { text-decoration: underline; }
+    .post { border: 1px solid #ddd; padding: 20px; margin: 20px 0; border-radius: 8px; display: flex; gap: 20px; align-items: flex-start; }
+    .post img { width: 120px; height: 90px; object-fit: cover; border-radius: 8px; flex-shrink: 0; }
+    .post-content h2 { margin: 0 0 8px 0; }
+    .post-content h2 a { color: #2c5f2e; text-decoration: none; }
+    .post-content h2 a:hover { text-decoration: underline; }
+    .post-content h2.no-link { color: #333; }
     date { color: #888; font-size: 0.9em; }
+    .post-content p { margin: 8px 0 0 0; }
   </style>
 </head>
 <body>
@@ -21,27 +24,39 @@
   <p>自治会・町内会の運営に役立つ情報をお届けします。</p>
 
   <div class="post">
-    <h2>はじめまして</h2>
-    <date>2026年4月28日</date>
-    <p>このブログでは、自治会運営のノウハウや困りごとの解決策をお伝えしていきます。どうぞよろしくお願いします。</p>
+    <img src="header.png" alt="はじめまして">
+    <div class="post-content">
+      <h2 class="no-link">はじめまして</h2>
+      <date>2026年4月28日</date>
+      <p>このブログでは、自治会運営のノウハウや困りごとの解決策をお伝えしていきます。どうぞよろしくお願いします。</p>
+    </div>
   </div>
 
   <div class="post">
-    <h2><a href="article3.html">なぜ私が町会長に立候補したのか</a></h2>
-    <date>2026年4月29日</date>
-    <p>町会の課題を変えたくて立候補した理由を書きました。</p>
+    <img src="header.png" alt="なぜ私が町会長に立候補したのか">
+    <div class="post-content">
+      <h2><a href="article3.html">なぜ私が町会長に立候補したのか</a></h2>
+      <date>2026年4月29日</date>
+      <p>町会の課題を変えたくて立候補した理由を書きました。</p>
+    </div>
   </div>
 
   <div class="post">
-    <h2><a href="article1.html">40代からブログに挑戦。GitHubで始めた理由</a></h2>
-    <date>2026年4月28日</date>
-    <p>40代から新しいことに挑戦する記録や、地域活動、AI活用などを発信していきます。</p>
+    <img src="header.png" alt="40代からブログに挑戦">
+    <div class="post-content">
+      <h2><a href="article1.html">40代からブログに挑戦。GitHubで始めた理由</a></h2>
+      <date>2026年4月28日</date>
+      <p>40代から新しいことに挑戦する記録や、地域活動、AI活用などを発信していきます。</p>
+    </div>
   </div>
 
   <div class="post">
-    <h2><a href="article2.html">初心者がCloudflare Pagesでブログを作った全記録</a></h2>
-    <date>2026年4月29日</date>
-    <p>メールとネット閲覧しかできない私が、Cloudflare PagesとGitHubで無料ブログを公開した記録です。</p>
+    <img src="header.png" alt="初心者がCloudflare Pagesでブログを作った全記録">
+    <div class="post-content">
+      <h2><a href="article2.html">初心者がCloudflare Pagesでブログを作った全記録</a></h2>
+      <date>2026年4月29日</date>
+      <p>メールとネット閲覧しかできない私が、Cloudflare PagesとGitHubで無料ブログを公開した記録です。</p>
+    </div>
   </div>
 
 </body>
