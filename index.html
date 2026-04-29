@@ -7,6 +7,10 @@
   <style>
     body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Hiragino Sans','Yu Gothic',sans-serif;background:#f8f4ed;color:#333;line-height:1.8}
     .hero img{width:100%;display:block;}
+    nav{background:#fff;border-top:3px solid #2d6c4f;display:flex;justify-content:center;gap:40px;padding:16px 20px;box-shadow:0 2px 8px rgba(0,0,0,.06);}
+    nav a{text-decoration:none;color:#333;font-size:1rem;display:flex;align-items:center;gap:6px;}
+    nav a:hover{color:#2d6c4f;}
+    nav a.active{color:#2d6c4f;border-bottom:2px solid #2d6c4f;padding-bottom:2px;}
     .container{max-width:800px;margin:auto;padding:40px 20px}
     .profile,.card{background:#fff;border-radius:18px;padding:28px;box-shadow:0 10px 25px rgba(0,0,0,.06);margin-bottom:28px}
     .card img{width:100%;height:250px;object-fit:contain;background:#f0f0f0;border-radius:12px;margin-bottom:16px}
@@ -14,18 +18,26 @@
     .card a{text-decoration:none;color:#2d6c4f}
     .badge{display:inline-block;background:#e8f3ea;color:#2d6c4f;padding:6px 12px;border-radius:30px;font-size:.85rem;margin-bottom:10px}
     footer{text-align:center;padding:40px 20px;color:#777}
+    @media(max-width:600px){nav{gap:20px;font-size:.9rem;}}
   </style>
 </head>
 <body>
 
 <div class="hero">
-  <img src="ChatGPT Image 2026年4月29日 11_07_24.png" alt="町会長が教える自治会運営ブログ">
+  <img src="hero.png" alt="まっさんの地域づくりブログ">
 </div>
+
+<nav>
+  <a href="index.html" class="active">🏠 ホーム</a>
+  <a href="blog.html">📖 ブログ一覧</a>
+  <a href="profile.html">🌿 プロフィール</a>
+  <a href="contact.html">✉️ お問い合わせ</a>
+</nav>
 
 <div class="container">
 
   <div class="profile">
-    <h2>こんにちは、町会長1年目のまっさんです。</h2>
+    <h2>こんにちは、まっさんです。</h2>
     <p>地域活動の中で感じたこと、町会運営の工夫、誰かの役に立つリアルな経験を発信しています。地域が少しでも明るく、住みやすくなるヒントを届けたいと思っています。</p>
   </div>
 
