@@ -1,64 +1,67 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>まっさんの地域づくりブログ</title>
-<style>
-body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Hiragino Sans','Yu Gothic',sans-serif;background:#f8f4ed;color:#333;line-height:1.8}
-header{background:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),url('images/header.jpg') center/cover;height:420px;color:#fff;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px}
-header h1{font-size:3rem;margin:0}
-header p{font-size:1.1rem;margin-top:10px}
-.container{max-width:1100px;margin:auto;padding:40px 20px}
-.profile,.card{background:#fff;border-radius:18px;padding:28px;box-shadow:0 10px 25px rgba(0,0,0,.06);margin-bottom:28px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
-.card h2{font-size:1.3rem;margin-top:0}
-.card a{text-decoration:none;color:#2d6c4f}
-.badge{display:inline-block;background:#e8f3ea;color:#2d6c4f;padding:6px 12px;border-radius:30px;font-size:.85rem;margin-bottom:10px}
-footer{text-align:center;padding:40px 20px;color:#777}
-@media(max-width:768px){header{height:320px}header h1{font-size:2rem}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>町会長が教える自治会運営ブログ</title>
+  <style>
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Hiragino Sans','Yu Gothic',sans-serif;background:#f8f4ed;color:#333;line-height:1.8}
+    header{background:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),url('header.png') center/cover;height:420px;color:#fff;display:flex;align-items:center;justify-content:center;text-align:center}
+    header h1{font-size:3rem;margin:0}
+    header p{font-size:1.1rem;margin-top:10px}
+    .container{max-width:800px;margin:auto;padding:40px 20px}
+    .profile,.card{background:#fff;border-radius:18px;padding:28px;box-shadow:0 10px 25px rgba(0,0,0,.06);margin-bottom:28px}
+    .card img{width:100%;height:200px;object-fit:cover;border-radius:12px;margin-bottom:16px}
+    .card h2{font-size:1.3rem;margin-top:0}
+    .card a{text-decoration:none;color:#2d6c4f}
+    .badge{display:inline-block;background:#e8f3ea;color:#2d6c4f;padding:6px 12px;border-radius:30px;font-size:.85rem;margin-bottom:10px}
+    footer{text-align:center;padding:40px 20px;color:#777}
+    @media(max-width:768px){header{height:320px}header h1{font-size:2rem}}
+  </style>
 </head>
 <body>
+
 <header>
-<div>
-<h1>まっさんの地域づくりブログ</h1>
-<p>町会運営・地域交流・暮らしを良くするヒントを発信中</p>
-</div>
+  <div>
+    <h1>🏘️ 町会長が教える自治会運営ブログ</h1>
+    <p>町会運営・地域交流・暮らしを良くするヒントを発信中</p>
+  </div>
 </header>
 
 <div class="container">
-<div class="profile">
-<h2>こんにちは、まっさんです。</h2>
-<p>地域活動の中で感じたこと、町会運営の工夫、誰かの役に立つリアルな経験を発信しています。地域が少しでも明るく、住みやすくなるヒントを届けたいと思っています。</p>
-</div>
 
- <div class="card">
+  <div class="profile">
+    <h2>こんにちは、町会長です。</h2>
+    <p>地域活動の中で感じたこと、町会運営の工夫、誰かの役に立つリアルな経験を発信しています。地域が少しでも明るく、住みやすくなるヒントを届けたいと思っています。</p>
+  </div>
+
+  <div class="card">
     <img src="header.png" alt="なぜ私が町会長に立候補したのか">
-    <div class="card-content">
-      <h2><a href="article3.html">なぜ私が町会長に立候補したのか</a></h2>
-      <p>町会の課題を変えたくて立候補した理由を書きました。</p>
+    <span class="badge">町会運営</span>
+    <h2><a href="article3.html">なぜ私が町会長に立候補したのか</a></h2>
+    <p>町会の課題を変えたくて立候補した理由を書きました。</p>
+  </div>
+
+  <div class="card">
+    <span class="badge">ブログ挑戦</span>
+    <h2><a href="article1.html">40代からブログに挑戦。GitHubで始めた理由</a></h2>
+    <p>新しいことに挑戦するまでのリアルな記録。</p>
+  </div>
+
+  <div class="card">
+    <span class="badge">ブログ運営</span>
+    <h2><a href="article2.html">初心者が無料ブログを作った話</a></h2>
+    <p>GitHub Pagesでゼロからブログ公開まで。</p>
+  </div>
+
+  <div class="profile">
+    <h2>こんな方に読んでほしい</h2>
+    <p>・町会や自治会の運営で悩んでいる方<br>・地域活動に興味がある方<br>・40代から新しい挑戦をしたい方</p>
+  </div>
+
 </div>
 
-<div class="card">
-<h2><a href="article1.html">40代からブログに挑戦。GitHubを始めた理由</a></h2>
-<p>新しいことに挑戦するまでのリアルな記録。</p>
-</div>
+<footer>© 2026 町会長が教える自治会運営ブログ</footer>
 
-<div class="card">
-<h2><a href="article2.html">完全初心者が無料ブログを作った話</a></h2>
-<p>GitHub Pagesでゼロからブログ公開まで。</p>
-</div>
-</div>
-
-<div class="profile">
-<h2>こんな方に読んでほしい</h2>
-<p>・町会や自治会の運営で悩んでいる方<br>・地域活動に興味がある方<br>・40代から新しい挑戦をしたい方</p>
-</div>
-</div>
-
-<footer>
-© 2026 まっさんの地域づくりブログ
-</footer>
 </body>
 </html>
