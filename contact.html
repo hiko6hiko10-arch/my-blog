@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お問い合わせ | まっさんの地域づくりブログ</title>
+  <meta name="description" content="まっさんの地域づくりブログへのお問い合わせページ。ご質問・ご感想はこちらからどうぞ。">
+  <meta name="author" content="まっさん">
+  <meta property="og:title" content="お問い合わせ | まっさんの地域づくりブログ">
+  <meta property="og:description" content="まっさんの地域づくりブログへのお問い合わせページ。ご質問・ご感想はこちらからどうぞ。">
+  <meta property="og:image" content="https://chokaicho-blog.com/hero.png">
+  <meta property="og:url" content="https://chokaicho-blog.com/contact.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="まっさんの地域づくりブログ">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://chokaicho-blog.com/contact.html">
+  <style>
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Hiragino Sans','Yu Gothic',sans-serif;background:#f8f4ed;color:#333;line-height:1.8}
+    .hero img{width:100%;display:block;}
+    nav{background:#fff;border-top:3px solid #2d6c4f;display:flex;justify-content:center;gap:40px;padding:16px 20px;box-shadow:0 2px 8px rgba(0,0,0,.06);}
+    nav a{text-decoration:none;color:#333;font-size:1rem;display:flex;align-items:center;gap:6px;}
+    nav a:hover{color:#2d6c4f;}
+    nav a.active{color:#2d6c4f;border-bottom:2px solid #2d6c4f;padding-bottom:2px;}
+    .container{max-width:800px;margin:auto;padding:40px 20px}
+    .card{background:#fff;border-radius:18px;padding:36px;box-shadow:0 10px 25px rgba(0,0,0,.06);margin-bottom:28px}
+    h1{color:#2d6c4f;font-size:1.6rem;border-bottom:3px solid #2d6c4f;padding-bottom:12px;}
+    .message{background:#e8f3ea;border-left:4px solid #2d6c4f;padding:20px;border-radius:0 12px 12px 0;margin:24px 0;}
+    label{display:block;font-weight:bold;margin-top:20px;margin-bottom:6px;color:#2d6c4f;}
+    input[type="text"],input[type="email"],textarea{width:100%;box-sizing:border-box;padding:12px;border:1px solid #ddd;border-radius:8px;font-size:1rem;font-family:inherit;background:#fafafa;}
+    input[type="text"]:focus,input[type="email"]:focus,textarea:focus{outline:none;border-color:#2d6c4f;background:#fff;}
+    textarea{height:160px;resize:vertical;}
+    button{margin-top:24px;background:#2d6c4f;color:#fff;border:none;padding:14px 40px;border-radius:30px;font-size:1rem;cursor:pointer;}
+    button:hover{background:#245a40;}
+    .note{color:#888;font-size:0.85em;margin-top:8px;}
+    footer{text-align:center;padding:40px 20px;color:#777}
+    @media(max-width:600px){nav{gap:20px;font-size:.9rem;}.card{padding:24px;}}
+  </style>
+</head>
+<body>
+
+<div class="hero">
+  <img src="hero.png" alt="まっさんの地域づくりブログ">
+</div>
+
+<nav>
+  <a href="index.html">🏠 ホーム</a>
+  <a href="blog.html">📖 ブログ一覧</a>
+  <a href="profile.html">🌿 プロフィール</a>
+  <a href="contact.html" class="active">✉️ お問い合わせ</a>
+</nav>
+
+<div class="container">
+  <div class="card">
+    <h1>✉️ お問い合わせ</h1>
+
+    <div class="message">
+      記事へのご感想・ご質問、地域活動に関するご相談など、お気軽にどうぞ。<br>
+      通常3〜5営業日以内にご返信します。
+    </div>
+
+    <form action="https://formspree.io/f/your-form-id" method="POST">
+      <label for="name">お名前</label>
+      <input type="text" id="name" name="name" placeholder="例：田中 太郎" required>
+
+      <label for="email">メールアドレス</label>
+      <input type="email" id="email" name="email" placeholder="例：taro@example.com" required>
+
+      <label for="message">メッセージ</label>
+      <textarea id="message" name="message" placeholder="ご質問・ご感想をご記入ください" required></textarea>
+
+      <p class="note">※ いただいたメールアドレスは返信のみに使用し、第三者への提供は行いません。</p>
+
+      <button type="submit">送信する</button>
+    </form>
+  </div>
+</div>
+
+<footer>© 2026 まっさんの地域づくりブログ</footer>
+
+</body>
+</html>

@@ -3,85 +3,138 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>完全初心者がCloudflare Pagesでブログをゼロから作った話</title>
+  <title>完全初心者がCloudflare Pagesでブログをゼロから作った話 | まっさんの地域づくりブログ</title>
+  <meta name="description" content="メールとネット閲覧しかできなかった完全初心者が、Cloudflare PagesとGitHubを使って無料ブログを公開するまでの手順を公開。">
+  <meta name="author" content="まっさん">
+  <meta property="og:title" content="完全初心者がCloudflare Pagesでブログをゼロから作った話">
+  <meta property="og:description" content="メールとネット閲覧しかできなかった完全初心者が、Cloudflare PagesとGitHubを使って無料ブログを公開するまでの手順を公開。">
+  <meta property="og:image" content="https://chokaicho-blog.com/hero.png">
+  <meta property="og:url" content="https://chokaicho-blog.com/article2.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="まっさんの地域づくりブログ">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://chokaicho-blog.com/article2.html">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "完全初心者がCloudflare Pagesでブログをゼロから作った話",
+    "image": "https://chokaicho-blog.com/hero.png",
+    "datePublished": "2026-04-28",
+    "dateModified": "2026-05-01",
+    "author": {"@type": "Person", "name": "まっさん"},
+    "publisher": {"@type": "Organization", "name": "まっさんの地域づくりブログ"},
+    "url": "https://chokaicho-blog.com/article2.html",
+    "description": "メールとネット閲覧しかできなかった完全初心者が、Cloudflare PagesとGitHubを使って無料ブログを公開するまでの手順を公開。"
+  }
+  </script>
   <style>
-    body { font-family: sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.8; }
-    h1 { color: #2c5f2e; border-bottom: 3px solid #2c5f2e; padding-bottom: 10px; }
-    h2 { color: #333; margin-top: 40px; }
-    .date { color: #888; font-size: 0.9em; margin-bottom: 30px; }
-    ul { padding-left: 20px; }
-    li { margin: 8px 0; }
-    .step { background: #f5f5f5; border-left: 4px solid #2c5f2e; padding: 15px; margin: 20px 0; border-radius: 4px; }
-    .back { margin-top: 40px; }
-    .back a { color: #2c5f2e; }
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Hiragino Sans','Yu Gothic',sans-serif;background:#f8f4ed;color:#333;line-height:1.8}
+    .hero img{width:100%;display:block;}
+    nav{background:#fff;border-top:3px solid #2d6c4f;display:flex;justify-content:center;gap:40px;padding:16px 20px;box-shadow:0 2px 8px rgba(0,0,0,.06);}
+    nav a{text-decoration:none;color:#333;font-size:1rem;display:flex;align-items:center;gap:6px;}
+    nav a:hover{color:#2d6c4f;}
+    .container{max-width:800px;margin:auto;padding:40px 20px}
+    .card{background:#fff;border-radius:18px;padding:36px;box-shadow:0 10px 25px rgba(0,0,0,.06);margin-bottom:28px}
+    h1{color:#2d6c4f;font-size:1.6rem;border-bottom:3px solid #2d6c4f;padding-bottom:12px;line-height:1.6;}
+    h2{color:#2d6c4f;border-left:5px solid #2d6c4f;padding-left:12px;margin-top:36px;font-size:1.2rem;}
+    .date{color:#888;font-size:0.9em;margin-bottom:24px;}
+    .badge{display:inline-block;background:#e8f3ea;color:#2d6c4f;padding:6px 12px;border-radius:30px;font-size:.85rem;margin-bottom:16px}
+    ul{padding-left:20px;}
+    li{margin:8px 0;}
+    .step{background:#f5f5f5;border-left:4px solid #2d6c4f;padding:15px;margin:20px 0;border-radius:4px;}
+    .back{margin-top:36px;}
+    .back a{color:#2d6c4f;text-decoration:none;}
+    footer{text-align:center;padding:40px 20px;color:#777}
+    @media(max-width:600px){nav{gap:20px;font-size:.9rem;}.card{padding:24px;}}
   </style>
 </head>
 <body>
-  <h1>完全初心者がCloudflare Pagesでブログをゼロから作った話</h1>
-  <div class="date">2026年4月28日</div>
 
-  <p>メールとネット閲覧しかできない私が、本日ついに自分のブログを公開しました。使ったのは <strong>Cloudflare Pages</strong> と <strong>GitHub</strong>。費用はドメイン代のみです。</p>
+<div class="hero">
+  <img src="hero.png" alt="まっさんの地域づくりブログ">
+</div>
 
-  <h2>今日やったこと</h2>
+<nav>
+  <a href="index.html">🏠 ホーム</a>
+  <a href="blog.html">📖 ブログ一覧</a>
+  <a href="profile.html">🌿 プロフィール</a>
+  <a href="contact.html">✉️ お問い合わせ</a>
+</nav>
 
-  <div class="step">
-    <strong>① Cloudflareアカウント作成</strong><br>
-    cloudflare.com でメールアドレスを登録するだけ。5分で完了。
+<div class="container">
+  <div class="card">
+    <span class="badge">ブログ運営</span>
+    <h1>完全初心者がCloudflare Pagesでブログをゼロから作った話</h1>
+    <div class="date">2026年4月28日</div>
+
+    <p>メールとネット閲覧しかできない私が、本日ついに自分のブログを公開しました。使ったのは <strong>Cloudflare Pages</strong> と <strong>GitHub</strong>。費用はドメイン代のみです。</p>
+
+    <h2>今日やったこと</h2>
+
+    <div class="step">
+      <strong>① Cloudflareアカウント作成</strong><br>
+      cloudflare.com でメールアドレスを登録するだけ。5分で完了。
+    </div>
+
+    <div class="step">
+      <strong>② 独自ドメイン取得</strong><br>
+      Cloudflare内でドメインを購入。<code>chokaicho-blog.com</code> を取得しました。年額約1,500円。住所は英語表記で入力が必要でした。
+    </div>
+
+    <div class="step">
+      <strong>③ GitHubアカウント作成</strong><br>
+      github.com でアカウントを作成。ブログのファイルを保管する場所です。
+    </div>
+
+    <div class="step">
+      <strong>④ リポジトリ作成＆index.html作成</strong><br>
+      「my-blog」というリポジトリ（フォルダのようなもの）を作り、トップページとなる index.html を作成してコミット（保存）しました。
+    </div>
+
+    <div class="step">
+      <strong>⑤ Cloudflare PagesにGitHubを接続</strong><br>
+      CloudflareのダッシュボードからGitHubと連携。my-blogリポジトリを選んでデプロイ（公開）しました。
+    </div>
+
+    <div class="step">
+      <strong>⑥ 独自ドメインを設定</strong><br>
+      <code>chokaicho-blog.com</code> をブログに紐付け。DNS反映まで最大48時間かかるとのこと。
+    </div>
+
+    <div class="step">
+      <strong>⑦ 記事を投稿</strong><br>
+      GitHubで article1.html を作成し、記念すべき第1記事を公開しました。
+    </div>
+
+    <h2>やってみた感想</h2>
+    <p>正直、最初は「GitHubって何？」という状態でした。コマンド操作が必要と聞いて不安でしたが、GitHubのウェブ画面だけで全部できました。</p>
+    <p>つまずいたポイントは：</p>
+    <ul>
+      <li>住所の英語表記（番地→町名→区の順）</li>
+      <li>CloudflareのWorkers画面とPages画面の違い</li>
+      <li>GitHubのファイル編集画面の開き方</li>
+    </ul>
+    <p>それ以外は、AIのサポートを受けながら一つひとつ進めることができました。</p>
+
+    <h2>かかった費用</h2>
+    <ul>
+      <li>Cloudflareアカウント：無料</li>
+      <li>GitHubアカウント：無料</li>
+      <li>Cloudflare Pages：無料</li>
+      <li>ドメイン（chokaicho-blog.com）：約1,500円/年</li>
+    </ul>
+    <p><strong>初期費用はドメイン代のみ！</strong> サーバー代ゼロでブログが持てました。</p>
+
+    <h2>同じように挑戦したい人へ</h2>
+    <p>「パソコンが苦手だから無理」と思っている方も、一つひとつ丁寧に進めれば必ずできます。私がそうでした。</p>
+    <p>次回は記事の書き方や、ブログのデザインを改善する方法を書いていく予定です。</p>
+
+    <div class="back"><a href="blog.html">← ブログ一覧に戻る</a></div>
   </div>
+</div>
 
-  <div class="step">
-    <strong>② 独自ドメイン取得</strong><br>
-    Cloudflare内でドメインを購入。<code>chokaicho-blog.com</code> を取得しました。年額約1,500円。住所は英語表記で入力が必要でした。
-  </div>
+<footer>© 2026 まっさんの地域づくりブログ</footer>
 
-  <div class="step">
-    <strong>③ GitHubアカウント作成</strong><br>
-    github.com でアカウントを作成。ブログのファイルを保管する場所です。
-  </div>
-
-  <div class="step">
-    <strong>④ リポジトリ作成＆index.html作成</strong><br>
-    「my-blog」というリポジトリ（フォルダのようなもの）を作り、トップページとなる index.html を作成してコミット（保存）しました。
-  </div>
-
-  <div class="step">
-    <strong>⑤ Cloudflare PagesにGitHubを接続</strong><br>
-    CloudflareのダッシュボードからGitHubと連携。my-blogリポジトリを選んでデプロイ（公開）しました。
-  </div>
-
-  <div class="step">
-    <strong>⑥ 独自ドメインを設定</strong><br>
-    <code>chokaicho-blog.com</code> をブログに紐付け。DNS反映まで最大48時間かかるとのこと。
-  </div>
-
-  <div class="step">
-    <strong>⑦ 記事を投稿</strong><br>
-    GitHubで article1.html を作成し、記念すべき第1記事を公開しました。
-  </div>
-
-  <h2>やってみた感想</h2>
-  <p>正直、最初は「GitHubって何？」という状態でした。コマンド操作が必要と聞いて不安でしたが、GitHubのウェブ画面だけで全部できました。</p>
-  <p>つまずいたポイントは：</p>
-  <ul>
-    <li>住所の英語表記（番地→町名→区の順）</li>
-    <li>CloudflareのWorkers画面とPages画面の違い</li>
-    <li>GitHubのファイル編集画面の開き方</li>
-  </ul>
-  <p>それ以外は、AIのサポートを受けながら一つひとつ進めることができました。</p>
-
-  <h2>かかった費用</h2>
-  <ul>
-    <li>Cloudflareアカウント：無料</li>
-    <li>GitHubアカウント：無料</li>
-    <li>Cloudflare Pages：無料</li>
-    <li>ドメイン（chokaicho-blog.com）：約1,500円/年</li>
-  </ul>
-  <p><strong>初期費用はドメイン代のみ！</strong> サーバー代ゼロでブログが持てました。</p>
-
-  <h2>同じように挑戦したい人へ</h2>
-  <p>「パソコンが苦手だから無理」と思っている方も、一つひとつ丁寧に進めれば必ずできます。私がそうでした。</p>
-  <p>次回は記事の書き方や、ブログのデザインを改善する方法を書いていく予定です。</p>
-
-  <div class="back"><a href="index.html">← トップページに戻る</a></div>
 </body>
 </html>

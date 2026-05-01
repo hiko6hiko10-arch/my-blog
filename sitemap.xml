@@ -26,8 +26,18 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://chokaicho-blog.com/%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB.html</loc>
+    <loc>https://chokaicho-blog.com/profile.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://chokaicho-blog.com/blog.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://chokaicho-blog.com/contact.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>
