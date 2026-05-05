@@ -21,12 +21,19 @@
     .diary-date-big .year{font-size:0.75rem;opacity:0.8;}
     h1{color:#2d6c4f;font-size:1.5rem;margin:0;line-height:1.5;}
     .badge{display:inline-block;background:#e8f3ea;color:#2d6c4f;padding:5px 12px;border-radius:20px;font-size:.85rem;margin-bottom:12px;}
-    .photo-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:24px 0;}
-    .photo-grid img{width:100%;border-radius:12px;object-fit:cover;aspect-ratio:4/3;}
+    .before-after{margin:24px 0;}
+    .before-after + .before-after{margin-top:20px;}
+    .ba-label{font-size:0.85rem;color:#666;margin-bottom:6px;font-weight:bold;}
+    .ba-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+    .ba-photo{text-align:center;}
+    .ba-photo img{width:100%;border-radius:12px;object-fit:cover;aspect-ratio:4/3;display:block;}
+    .ba-photo span{display:inline-block;margin-top:6px;font-size:0.8rem;font-weight:bold;padding:3px 12px;border-radius:20px;}
+    .ba-photo.before span{background:#fdecea;color:#c0392b;}
+    .ba-photo.after span{background:#e8f3ea;color:#2d6c4f;}
     .back{margin-top:28px;}
     .back a{color:#2d6c4f;text-decoration:none;font-size:0.95rem;}
     footer{text-align:center;padding:40px 20px;color:#777}
-    @media(max-width:600px){nav{gap:16px;font-size:.9rem;}.card{padding:24px;}.diary-header{flex-direction:column;align-items:flex-start;}.photo-grid{grid-template-columns:1fr;}}
+    @media(max-width:600px){nav{gap:16px;font-size:.9rem;}.card{padding:24px;}.diary-header{flex-direction:column;align-items:flex-start;}.ba-row{grid-template-columns:1fr;}}
   </style>
 </head>
 <body>
@@ -57,11 +64,32 @@
     <p>本日は町会の清掃活動として、木のまわりや歩道付近の雑草抜きを行いました。</p>
     <p>写真のように、木の根元にはしっかりと雑草が根を張っており、見た目以上に手ごわい作業でした。特に地中深くまで伸びた根や、木の根と絡み合っている部分は、丁寧に手作業で一本一本取り除いていきました。</p>
 
-    <div class="photo-grid">
-      <img src="diary002-1.jpg" alt="歩道の柱周辺の雑草（作業前）">
-      <img src="diary002-2.jpg" alt="歩道の柱周辺（作業後）">
-      <img src="diary002-3.jpg" alt="木の根元の雑草（作業中）">
-      <img src="diary002-4.jpg" alt="木の根元（作業後）">
+    <div class="before-after">
+      <div class="ba-label">📍 歩道の柱周辺</div>
+      <div class="ba-row">
+        <div class="ba-photo before">
+          <img src="diary002-1.jpg" alt="歩道の柱周辺の雑草（作業前）">
+          <span>作業前</span>
+        </div>
+        <div class="ba-photo after">
+          <img src="diary002-2.jpg" alt="歩道の柱周辺（作業後）">
+          <span>作業後</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="before-after">
+      <div class="ba-label">📍 木の根元</div>
+      <div class="ba-row">
+        <div class="ba-photo before">
+          <img src="diary002-3.jpg" alt="木の根元の雑草（作業中）">
+          <span>作業前</span>
+        </div>
+        <div class="ba-photo after">
+          <img src="diary002-4.jpg" alt="木の根元（作業後）">
+          <span>作業後</span>
+        </div>
+      </div>
     </div>
 
     <p>作業後は土もきれいに整い、見た目もすっきり。気持ちよく歩ける環境に戻りました。</p>
