@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://chokaicho-blog.com/</loc>
+    <loc>https://chokaicho-blog.com/index.html</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -37,6 +37,11 @@
   </url>
   <url>
     <loc>https://chokaicho-blog.com/diary002.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://chokaicho-blog.com/diary003.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
