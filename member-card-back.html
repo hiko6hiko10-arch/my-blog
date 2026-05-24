@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>茨田北連合振興町会 会員証 裏面</title>
-  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -276,7 +275,7 @@
         <!-- QRコード -->
         <div class="qr-area">
           <div class="qr-box">
-            <canvas id="qrCanvas"></canvas>
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=84x84&data=https://forms.gle/D238kHvwoyN6nasD8&margin=1" alt="申し込みQRコード" width="84" height="84">
           </div>
           <div class="qr-label">デジタル会員証を希望の方は<br>QRコードを読み取り<br>お申し込みください</div>
         </div>
@@ -346,21 +345,6 @@
   </div>
 </div>
 
-<script>
-  // デジタル会員証申し込みフォーム
-  QRCode.toCanvas(
-    document.getElementById('qrCanvas'),
-    'https://forms.gle/D238kHvwoyN6nasD8',
-    {
-      width: 84,
-      margin: 1,
-      color: { dark: '#1a1a2e', light: '#ffffff' }
-    },
-    function(error) {
-      if (error) console.error(error);
-    }
-  );
-</script>
 
 </body>
 </html>
