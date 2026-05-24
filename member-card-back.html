@@ -112,11 +112,11 @@
       height: 84px;
     }
     .qr-label {
-      font-size: 5.5pt;
+      font-size: 5pt;
       color: #3a3060;
       font-weight: 600;
       text-align: center;
-      line-height: 1.4;
+      line-height: 1.5;
     }
 
     /* 仕切り線 */
@@ -278,7 +278,7 @@
           <div class="qr-box">
             <canvas id="qrCanvas"></canvas>
           </div>
-          <div class="qr-label">デジタル会員証<br>QRコード</div>
+          <div class="qr-label">デジタル会員証を希望の方は<br>QRコードを読み取り<br>お申し込みください</div>
         </div>
 
         <div class="divider"></div>
@@ -347,10 +347,10 @@
 </div>
 
 <script>
-  // サンプルQRコード（実際は各世帯のURLが入る）
+  // デジタル会員証申し込みフォーム
   QRCode.toCanvas(
     document.getElementById('qrCanvas'),
-    'https://member-card-app.hiko6hiko10.workers.dev/card/sample-tanaka-2026',
+    'https://forms.gle/D238kHvwoyN6nasD8',
     {
       width: 84,
       margin: 1,
