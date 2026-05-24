@@ -8,9 +8,8 @@
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap');
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    /* ===== 画面表示 ===== */
     body {
-      background: #ccc;
+      background: #bbb;
       font-family: 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', sans-serif;
       padding: 30px 20px;
       display: flex;
@@ -18,14 +17,11 @@
       align-items: center;
       gap: 24px;
     }
-    h1 {
-      font-size: 1.1rem;
-      color: #333;
-      font-weight: 700;
-    }
+    h1 { font-size: 1.1rem; color: #333; font-weight: 700; }
+
     .preview-row {
       display: flex;
-      gap: 24px;
+      gap: 28px;
       justify-content: center;
       flex-wrap: wrap;
       align-items: flex-start;
@@ -36,134 +32,149 @@
       align-items: center;
       gap: 6px;
     }
-    .side-label {
-      font-size: 0.75rem;
-      color: #555;
-      font-weight: 700;
-    }
+    .side-label { font-size: 0.75rem; color: #555; font-weight: 700; }
 
-    /* ===== カード共通（91mm × 55mm） ===== */
+    /* ===== カード共通 91mm × 55mm ===== */
     .card {
       width: 91mm;
       height: 55mm;
       border-radius: 3mm;
       overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+      box-shadow: 0 6px 24px rgba(0,0,0,0.3);
       display: flex;
       flex-direction: column;
-      position: relative;
     }
 
-    /* ===== 表面 ===== */
+    /* ============================================================
+       表面
+    ============================================================ */
     .front {
-      background: linear-gradient(135deg, #a8c0e8 0%, #c4b0e8 45%, #a8d4bc 100%);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      background: linear-gradient(125deg, #9bbce0 0%, #bfabe0 45%, #9ecfb2 100%);
     }
+
+    /* 上段：令和８年度 ＋ タイトル */
     .front-top {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      padding: 3mm 4mm 2mm;
+      padding: 3.5mm 5mm 1mm 5mm;
     }
     .front-year {
-      font-size: 11pt;
+      font-size: 17pt;
       font-weight: 900;
-      color: #f5d000;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.2);
-      letter-spacing: 1px;
-      line-height: 1.2;
+      color: #f0d000;
+      letter-spacing: 2px;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.18);
+      line-height: 1.1;
     }
     .front-title-block {
-      text-align: right;
+      text-align: center;
     }
     .front-org {
-      font-size: 9pt;
+      font-size: 11pt;
       font-weight: 700;
-      color: #2a2060;
-      letter-spacing: 0.5px;
+      color: #1c1848;
+      letter-spacing: 1px;
     }
     .front-title {
-      font-size: 11pt;
+      font-size: 13pt;
       font-weight: 900;
-      color: #2a2060;
-      letter-spacing: 2px;
+      color: #1c1848;
+      letter-spacing: 3px;
+      margin-top: 0.5mm;
     }
+
+    /* 中段：ロゴ ＋ フィールド */
     .front-body {
       flex: 1;
       display: flex;
       align-items: center;
-      gap: 3mm;
-      padding: 1mm 4mm 2mm;
+      padding: 1mm 5mm 1.5mm 4mm;
+      gap: 4mm;
     }
     .front-logo {
-      width: 24mm;
-      height: 24mm;
+      width: 22mm;
+      height: 22mm;
       border-radius: 50%;
-      background: rgba(255,255,255,0.92);
+      background: radial-gradient(circle, #fff0f4 60%, #ffd8e8 100%);
+      border: 0.5mm solid rgba(255,255,255,0.8);
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.12);
       overflow: hidden;
     }
     .front-logo img {
-      width: 22mm;
-      height: 22mm;
+      width: 21mm;
+      height: 21mm;
       object-fit: contain;
     }
+
+    /* フィールド（ラベル左・ボックス右） */
     .front-fields {
       flex: 1;
       display: flex;
       flex-direction: column;
-      gap: 2mm;
-    }
-    .front-field-row {
-      display: flex;
-      gap: 2mm;
+      justify-content: center;
+      gap: 2.5mm;
     }
     .front-field {
-      flex: 1;
       display: flex;
-      flex-direction: column;
-      gap: 0.5mm;
+      align-items: center;
+      gap: 2mm;
     }
-    .front-field.narrow { flex: 0.6; }
     .front-field .lbl {
-      font-size: 4pt;
+      font-size: 6pt;
       font-weight: 700;
-      color: #2a2060;
+      color: #1c1848;
+      width: 11mm;
+      text-align: right;
+      flex-shrink: 0;
+      line-height: 1.4;
+    }
+    .front-field .lbl small {
+      display: block;
+      font-size: 4.5pt;
+      font-weight: 400;
     }
     .front-field .val {
-      background: rgba(255,255,255,0.75);
-      border-radius: 1mm;
-      min-height: 5mm;
-    }
-    .front-footer {
-      background: rgba(255,255,255,0.3);
-      border-top: 0.3mm solid rgba(255,255,255,0.6);
-      padding: 1.5mm 4mm;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .front-footer-addr {
-      font-size: 3.5pt;
-      color: #2a2060;
-      line-height: 1.5;
-    }
-    .front-footer-tel {
-      font-size: 3.5pt;
-      color: #2a2060;
-      text-align: right;
-      line-height: 1.5;
+      flex: 1;
+      background: rgba(255,255,255,0.82);
+      border-radius: 1.5mm;
+      height: 6.5mm;
     }
 
-    /* ===== 裏面 ===== */
+    /* フッター（ミントグリーン） */
+    .front-footer {
+      background: #9fd0b4;
+      padding: 2mm 4mm;
+      text-align: center;
+    }
+    .front-footer-org {
+      font-size: 9.5pt;
+      font-weight: 700;
+      color: #1c1848;
+      letter-spacing: 2px;
+    }
+    .front-footer-info {
+      font-size: 5.5pt;
+      color: #1c1848;
+      line-height: 1.7;
+      margin-top: 0.5mm;
+    }
+
+    /* ============================================================
+       裏面
+    ============================================================ */
     .back {
-      background: linear-gradient(135deg, #a8c4e8 0%, #c4b0e4 50%, #a8d0bc 100%);
       flex: 1;
       display: flex;
       flex-direction: column;
+      background: linear-gradient(135deg, #a8c4e8 0%, #c4b0e4 50%, #a8d0bc 100%);
     }
     .back-header {
       background: rgba(255,255,255,0.35);
@@ -176,18 +187,17 @@
     .back-header-title {
       font-size: 7pt;
       font-weight: 700;
-      color: #2a2060;
+      color: #1c1848;
       letter-spacing: 1px;
     }
     .back-header-year {
       font-size: 6pt;
       font-weight: 600;
-      color: #2a2060;
+      color: #1c1848;
     }
     .back-body {
       flex: 1;
       display: flex;
-      gap: 0;
       padding: 2.5mm 3mm;
     }
     .qr-area {
@@ -210,13 +220,10 @@
       box-shadow: 0 1px 4px rgba(0,0,0,0.12);
       overflow: hidden;
     }
-    .qr-box img {
-      width: 20mm;
-      height: 20mm;
-    }
+    .qr-box img { width: 20mm; height: 20mm; }
     .qr-label {
       font-size: 3.8pt;
-      color: #2a2060;
+      color: #1c1848;
       font-weight: 600;
       text-align: center;
       line-height: 1.5;
@@ -235,7 +242,7 @@
     .check-title {
       font-size: 6pt;
       font-weight: 700;
-      color: #2a2060;
+      color: #1c1848;
     }
     .check-grid {
       display: grid;
@@ -260,19 +267,18 @@
     }
     .check-name {
       font-size: 5pt;
-      color: #2a2060;
+      color: #1c1848;
       text-align: center;
       line-height: 1.3;
       font-weight: 600;
     }
-    .check-cell.blank .check-name { color: rgba(100,90,140,0.35); }
+    .check-cell.blank .check-name { color: rgba(100,90,140,0.3); }
     .check-box {
       width: 3mm;
       height: 3mm;
       border: 0.3mm solid #7060a8;
       border-radius: 0.5mm;
       background: #fff;
-      flex-shrink: 0;
     }
     .check-cell.blank .check-box { border-color: rgba(180,170,210,0.4); }
     .back-footer {
@@ -283,17 +289,12 @@
     }
     .back-footer-text {
       font-size: 4pt;
-      color: #2a2060;
+      color: #1c1848;
       font-weight: 600;
     }
 
-    /* ===== 操作ボタン ===== */
-    .btn-area {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+    /* ===== ボタン・説明 ===== */
+    .btn-area { display: flex; gap: 12px; }
     .btn {
       padding: 12px 28px;
       border-radius: 8px;
@@ -301,16 +302,14 @@
       font-size: 0.95rem;
       font-weight: 700;
       cursor: pointer;
-    }
-    .btn-print {
-      background: #2a2060;
+      background: #1c1848;
       color: #fff;
     }
     .note-box {
       background: #fff;
       border-radius: 10px;
       padding: 16px 20px;
-      max-width: 600px;
+      max-width: 620px;
       width: 100%;
       font-size: 0.82rem;
       color: #444;
@@ -322,52 +321,18 @@
       margin-bottom: 8px;
       border-left: 3px solid #7060a8;
       padding-left: 8px;
-      color: #2a2060;
+      color: #1c1848;
     }
     .note-box li { margin-left: 16px; margin-bottom: 3px; }
 
-    /* ===== 印刷スタイル ===== */
+    /* ===== 印刷 ===== */
     @media print {
-      body {
-        background: white;
-        padding: 0;
-        margin: 0;
-        gap: 0;
-      }
+      body { background: white; padding: 0; margin: 0; gap: 0; }
       h1, .btn-area, .note-box, .side-label { display: none !important; }
-
-      /* 表面：1ページ目 */
-      .card-wrap:first-child {
-        page-break-after: always;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100vw;
-        height: 100vh;
-        margin: 0;
-        padding: 0;
-      }
-      /* 裏面：2ページ目 */
-      .card-wrap:last-child {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100vw;
-        height: 100vh;
-        margin: 0;
-        padding: 0;
-      }
-      .preview-row {
-        display: contents;
-      }
-
-      .card {
-        box-shadow: none;
-        border-radius: 3mm;
-        /* プリントパック 名刺サイズ */
-        width: 91mm;
-        height: 55mm;
-      }
+      .card-wrap:first-child { page-break-after: always; display: flex; justify-content: center; align-items: center; width: 100vw; height: 100vh; }
+      .card-wrap:last-child  { display: flex; justify-content: center; align-items: center; width: 100vw; height: 100vh; }
+      .preview-row { display: contents; }
+      .card { box-shadow: none; width: 91mm; height: 55mm; }
       .check-box { border: 0.3mm solid #7060a8; }
     }
   </style>
@@ -394,27 +359,21 @@
           <img src="mattakita-logo2.png" alt="Matta Kita ロゴ">
         </div>
         <div class="front-fields">
-          <div class="front-field-row">
-            <div class="front-field">
-              <div class="lbl">町　会　名</div>
-              <div class="val"></div>
-            </div>
+          <div class="front-field">
+            <div class="lbl">町会名</div>
+            <div class="val"></div>
           </div>
-          <div class="front-field-row">
-            <div class="front-field">
-              <div class="lbl">氏　名（世帯主）</div>
-              <div class="val"></div>
-            </div>
+          <div class="front-field">
+            <div class="lbl">氏　名<small>（世帯主）</small></div>
+            <div class="val"></div>
           </div>
         </div>
       </div>
       <div class="front-footer">
-        <div class="front-footer-addr">
-          茨田北連合振興町会<br>
-          〒538-0032　大阪市鶴見区安田４丁目2-12　茨田北福祉会館
-        </div>
-        <div class="front-footer-tel">
-          TEL/FAX：06-6913-8119
+        <div class="front-footer-org">茨田北連合振興町会</div>
+        <div class="front-footer-info">
+          〒538-0032　大阪市鶴見区安田４丁目2-12<br>
+          茨田北福祉会館　TEL/FAX：06-6913-8119
         </div>
       </div>
     </div>
@@ -440,38 +399,14 @@
           <div class="check-area">
             <div class="check-title">■ 行事参加スタンプ</div>
             <div class="check-grid">
-              <div class="check-cell">
-                <div class="check-name">盆踊り<br>大会</div>
-                <div class="check-box"></div>
-              </div>
-              <div class="check-cell">
-                <div class="check-name">餅つき<br>大会</div>
-                <div class="check-box"></div>
-              </div>
-              <div class="check-cell blank">
-                <div class="check-name">　</div>
-                <div class="check-box"></div>
-              </div>
-              <div class="check-cell blank">
-                <div class="check-name">　</div>
-                <div class="check-box"></div>
-              </div>
-              <div class="check-cell blank">
-                <div class="check-name">　</div>
-                <div class="check-box"></div>
-              </div>
-              <div class="check-cell blank">
-                <div class="check-name">　</div>
-                <div class="check-box"></div>
-              </div>
-              <div class="check-cell blank">
-                <div class="check-name">　</div>
-                <div class="check-box"></div>
-              </div>
-              <div class="check-cell blank">
-                <div class="check-name">　</div>
-                <div class="check-box"></div>
-              </div>
+              <div class="check-cell"><div class="check-name">盆踊り<br>大会</div><div class="check-box"></div></div>
+              <div class="check-cell"><div class="check-name">餅つき<br>大会</div><div class="check-box"></div></div>
+              <div class="check-cell blank"><div class="check-name">　</div><div class="check-box"></div></div>
+              <div class="check-cell blank"><div class="check-name">　</div><div class="check-box"></div></div>
+              <div class="check-cell blank"><div class="check-name">　</div><div class="check-box"></div></div>
+              <div class="check-cell blank"><div class="check-name">　</div><div class="check-box"></div></div>
+              <div class="check-cell blank"><div class="check-name">　</div><div class="check-box"></div></div>
+              <div class="check-cell blank"><div class="check-name">　</div><div class="check-box"></div></div>
             </div>
           </div>
         </div>
@@ -484,20 +419,18 @@
 
 </div>
 
-<!-- ボタン -->
 <div class="btn-area">
-  <button class="btn btn-print" onclick="window.print()">🖨️ PDFとして保存（印刷）</button>
+  <button class="btn" onclick="window.print()">🖨️ PDFとして保存（印刷）</button>
 </div>
 
-<!-- 説明 -->
 <div class="note-box">
   <h2>📌 プリントパックへの入稿方法</h2>
   <ul>
-    <li>「PDFとして保存」ボタンを押す → Safariの場合は共有→PDF保存、Chromeは「送信先：PDFに保存」を選択</li>
+    <li>「PDFとして保存」ボタンを押す → Chromeは「送信先：PDFに保存」を選択</li>
     <li>表面・裏面が別ページとして出力されます</li>
     <li>プリントパックの「名刺サイズ（91mm×55mm）両面」で入稿してください</li>
-    <li>氏名・町会名・会員番号の空欄は印刷後に手書きまたはスタンプで記入します</li>
-    <li>行事スタンプ欄の空白マスは当日スタンプ・シールで対応してください</li>
+    <li>氏名・町会名の空欄は印刷後に手書きで記入します</li>
+    <li>空白のスタンプ欄は当日スタンプ・シールで対応してください</li>
   </ul>
 </div>
 
