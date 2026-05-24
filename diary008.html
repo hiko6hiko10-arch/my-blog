@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>令和８年度　会員証づくりに挑戦しました📇 | 町会長日記</title>
+  <meta name="description" content="今年度から町会の会員証を一から作り直しました。紙の会員証とデジタル会員証、両方を合わせて整備した記録です。">
+  <link rel="canonical" href="https://chokaicho-blog.com/diary008.html">
+  <style>
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Hiragino Sans','Yu Gothic',sans-serif;background:#f8f4ed;color:#333;line-height:1.8}
+    .hero img{width:100%;display:block;}
+    nav{background:#fff;border-top:3px solid #2d6c4f;display:flex;justify-content:center;gap:32px;padding:16px 20px;box-shadow:0 2px 8px rgba(0,0,0,.06);flex-wrap:wrap;}
+    nav a{text-decoration:none;color:#333;font-size:1rem;display:flex;align-items:center;gap:6px;}
+    nav a:hover{color:#2d6c4f;}
+    .container{max-width:800px;margin:auto;padding:40px 20px}
+    .card{background:#fff;border-radius:18px;padding:36px;box-shadow:0 10px 25px rgba(0,0,0,.06);}
+    .diary-header{display:flex;align-items:center;gap:16px;margin-bottom:20px;}
+    .diary-date-big{background:#2d6c4f;color:#fff;border-radius:14px;padding:12px 16px;text-align:center;flex-shrink:0;}
+    .diary-date-big .month{font-size:0.8rem;}
+    .diary-date-big .day{font-size:2rem;font-weight:bold;line-height:1;}
+    .diary-date-big .year{font-size:0.75rem;opacity:0.8;}
+    h1{color:#2d6c4f;font-size:1.5rem;margin:0;line-height:1.5;}
+    h2{color:#2d6c4f;font-size:1.1rem;margin:28px 0 8px;border-left:4px solid #2d6c4f;padding-left:12px;}
+    .badge{display:inline-block;background:#e8f3ea;color:#2d6c4f;padding:5px 12px;border-radius:20px;font-size:.85rem;margin-bottom:12px;}
+    .point{background:#e8f3ea;border-left:4px solid #2d6c4f;padding:14px 18px;border-radius:0 12px 12px 0;margin:20px 0;font-size:0.95rem;}
+    .back{margin-top:28px;}
+    .back a{color:#2d6c4f;text-decoration:none;font-size:0.95rem;}
+    footer{text-align:center;padding:40px 20px;color:#777}
+
+    /* 画像ぼかしエリア */
+    .blur-wrap{
+      margin: 24px 0;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+      position: relative;
+    }
+    .blur-wrap img{
+      width: 100%;
+      display: block;
+      filter: blur(6px);
+      transform: scale(1.04);
+    }
+    .blur-label{
+      position: absolute;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.45);
+      color: #fff;
+      font-size: 0.78rem;
+      padding: 4px 14px;
+      border-radius: 20px;
+      white-space: nowrap;
+      letter-spacing: 1px;
+    }
+    .photo-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0;}
+
+    /* カードデザイン（ぼかし用インラインプレビュー） */
+    .card-preview{
+      filter: blur(5px);
+      transform: scale(1.03);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .card-front-mini{
+      background: linear-gradient(125deg,#9bbce0 0%,#bfabe0 45%,#9ecfb2 100%);
+      padding: 14px 16px 0;
+      font-family: 'Hiragino Sans','Yu Gothic',sans-serif;
+    }
+    .cf-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;}
+    .cf-year{font-size:1.4rem;font-weight:900;color:#f0d000;letter-spacing:2px;}
+    .cf-title{text-align:right;}
+    .cf-org{font-size:0.7rem;font-weight:700;color:#1c1848;}
+    .cf-name{font-size:0.9rem;font-weight:900;color:#1c1848;letter-spacing:2px;}
+    .cf-body{display:flex;align-items:center;gap:12px;padding:0 0 10px;}
+    .cf-logo{width:56px;height:56px;border-radius:50%;background:#fff0f4;border:2px solid #fff;display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;}
+    .cf-logo img{width:52px;height:52px;object-fit:contain;}
+    .cf-fields{flex:1;display:flex;flex-direction:column;gap:6px;}
+    .cf-field{display:flex;align-items:center;gap:6px;}
+    .cf-lbl{font-size:0.55rem;font-weight:700;color:#1c1848;width:36px;text-align:right;flex-shrink:0;}
+    .cf-val{flex:1;background:#fff;border-radius:4px;height:16px;}
+    .cf-footer{background:#9fd0b4;padding:8px;text-align:center;}
+    .cf-footer-org{font-size:0.65rem;font-weight:700;color:#1c1848;letter-spacing:1px;}
+    .cf-footer-addr{font-size:0.45rem;color:#1c1848;margin-top:1px;}
+
+    /* 裏面プレビュー */
+    .card-back-mini{
+      background: linear-gradient(135deg,#a8c4e8 0%,#c4b0e4 50%,#a8d0bc 100%);
+      padding: 10px 12px;
+      font-family: 'Hiragino Sans','Yu Gothic',sans-serif;
+    }
+    .cb-header{background:#d8e8f8;border-radius:6px;padding:5px 10px;display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+    .cb-title{font-size:0.6rem;font-weight:700;color:#1c1848;}
+    .cb-year{font-size:0.55rem;color:#1c1848;}
+    .cb-events{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;margin-bottom:6px;}
+    .cb-ev{background:#eef4ff;border-radius:5px;padding:4px 2px;text-align:center;}
+    .cb-ev-icon{font-size:0.9rem;line-height:1;}
+    .cb-ev-name{font-size:0.38rem;color:#1c1848;font-weight:600;line-height:1.2;margin-top:2px;}
+    .cb-ev-stamp{width:14px;height:14px;border-radius:50%;border:1.5px dashed #b0a8d0;margin:3px auto 0;}
+    .cb-footer{background:#d8e8f0;border-radius:4px;padding:4px;text-align:center;font-size:0.45rem;color:#1c1848;font-weight:600;}
+
+    @media(max-width:600px){
+      nav{gap:16px;font-size:.9rem;}
+      .card{padding:24px;}
+      .diary-header{flex-direction:column;align-items:flex-start;}
+      .photo-row{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+
+<div class="hero">
+  <img src="hero.png" alt="まっさんの地域づくりブログ">
+</div>
+
+<nav>
+  <a href="index.html">🏠 ホーム</a>
+  <a href="blog.html">📖 ブログ</a>
+  <a href="diary.html">📝 町会長日記</a>
+  <a href="profile.html">🌿 プロフィール</a>
+</nav>
+
+<div class="container">
+  <div class="card">
+    <span class="badge">まちづくり・デジタル</span>
+    <div class="diary-header">
+      <div class="diary-date-big">
+        <div class="year">2026年</div>
+        <div class="month">5月</div>
+        <div class="day">25</div>
+      </div>
+      <h1>令和８年度　会員証づくりに挑戦しました📇</h1>
+    </div>
+
+    <p>今年度から、町会の会員証を一から作り直しました。紙の会員証とデジタル会員証、両方を合わせて整備した記録です。</p>
+
+    <h2>📄 まず紙の会員証から</h2>
+
+    <p>これまで会員証がなかったので、まずデザインから考えました。町会のロゴを中心に、青・紫・緑のグラデーションを使った爽やかなデザインに決定。表面には氏名・町会名を記入する欄、裏面には行事参加スタンプ欄と、デジタル会員証の申し込み用QRコードを入れました。</p>
+
+    <!-- 表面ぼかし -->
+    <div class="blur-wrap">
+      <div class="card-preview">
+        <div class="card-front-mini">
+          <div class="cf-top">
+            <div class="cf-year">令和８年度</div>
+            <div class="cf-title">
+              <div class="cf-org">茨田北連合振興町会</div>
+              <div class="cf-name">― 会 員 証 ―</div>
+            </div>
+          </div>
+          <div class="cf-body">
+            <div class="cf-logo"><img src="mattakita-logo2.png" alt="logo"></div>
+            <div class="cf-fields">
+              <div class="cf-field"><div class="cf-lbl">町会名</div><div class="cf-val"></div></div>
+              <div class="cf-field"><div class="cf-lbl">氏　名</div><div class="cf-val"></div></div>
+            </div>
+          </div>
+          <div class="cf-footer">
+            <div class="cf-footer-org">茨田北連合振興町会</div>
+            <div class="cf-footer-addr">〒538-0032　大阪市鶴見区安田４丁目2-12　茨田北福祉会館　TEL/FAX：06-6913-8119</div>
+          </div>
+        </div>
+      </div>
+      <div class="blur-label">会員証（表面）</div>
+    </div>
+
+    <!-- 裏面ぼかし -->
+    <div class="blur-wrap">
+      <div class="card-preview">
+        <div class="card-back-mini">
+          <div class="cb-header">
+            <div class="cb-title">📋 イベント参加記録</div>
+            <div class="cb-year">令和８年度</div>
+          </div>
+          <div class="cb-events">
+            <div class="cb-ev"><div class="cb-ev-icon">🪲</div><div class="cb-ev-name">ほたるの夕べ</div><div class="cb-ev-stamp"></div></div>
+            <div class="cb-ev"><div class="cb-ev-icon">🏮</div><div class="cb-ev-name">茨田北盆踊り</div><div class="cb-ev-stamp"></div></div>
+            <div class="cb-ev"><div class="cb-ev-icon">🎪</div><div class="cb-ev-name">鶴見区民まつり</div><div class="cb-ev-stamp"></div></div>
+            <div class="cb-ev"><div class="cb-ev-icon">🍡</div><div class="cb-ev-name">茨田北もちつき</div><div class="cb-ev-stamp"></div></div>
+            <div class="cb-ev"><div class="cb-ev-icon">🦺</div><div class="cb-ev-name">防災訓練</div><div class="cb-ev-stamp"></div></div>
+          </div>
+          <div class="cb-footer">茨田北連合振興町会　Matta Kita 🌸</div>
+        </div>
+      </div>
+      <div class="blur-label">会員証（裏面）</div>
+    </div>
+
+    <h2>📱 次にデジタル会員証</h2>
+
+    <p>若い世帯を中心に、スマホで使えるデジタル版も作りました。世帯ごとに専用のURLを発行して、LINEなどで送るだけで使えます。アプリのインストールは不要で、ホーム画面に追加すればアイコンが表示されます。</p>
+
+    <p>主な機能はこの３つです。</p>
+
+    <div class="point">
+      ① <strong>会員証画面</strong>　世帯主名・町会名・QRコードが表示されます。イベントごとの参加記録も画面で確認できます。<br><br>
+      ② <strong>スタッフ画面</strong>　イベント当日、スタッフがQRコードをカメラで読み取ると、その場で参加記録が自動でつきます。受付の混雑を防ぎ、二重チェックも防止できます。<br><br>
+      ③ <strong>管理画面</strong>　世帯の登録・削除、イベントの追加・削除が管理者のスマホから操作できます。
+    </div>
+
+    <p>紙とデジタルを組み合わせることで、どんな世代の方にも対応できる会員証の仕組みが整いました。今後は実際に使いながら改善を重ねていきたいと思います。</p>
+
+    <div class="back">
+      <a href="diary.html">← 町会長日記 一覧へ</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 まっさんの地域づくりブログ</p>
+</footer>
+
+</body>
+</html>
