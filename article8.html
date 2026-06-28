@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>町会の回覧板をLINEでデジタル化する方法｜実際にやってみた手順とコツ | まっさんの地域づくりブログ</title>
+  <meta name="description" content="町会・自治会の回覧板をLINEオープンチャットでデジタル化する手順を、実際にやってみた経験から解説。QRコードの作り方、全戸への案内方法、高齢者への配慮、メリット・デメリット、登録者を増やすコツまでまとめた保存版です。">
+  <meta name="author" content="まっさん">
+  <meta name="keywords" content="LINE 回覧板,町会 LINE,自治会 回覧板 デジタル化,回覧板 LINE 作り方,オープンチャット 町内会">
+  <meta property="og:title" content="町会の回覧板をLINEでデジタル化する方法｜実際にやってみた手順とコツ">
+  <meta property="og:description" content="町会・自治会の回覧板をLINEオープンチャットでデジタル化する手順を、実際の経験から解説。QRコードの作り方から高齢者への配慮、登録者を増やすコツまでまとめた保存版。">
+  <meta property="og:image" content="https://chokaicho-blog.com/line-kairanban.png">
+  <meta property="og:url" content="https://chokaicho-blog.com/article8.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="まっさんの地域づくりブログ">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://chokaicho-blog.com/article8.html">
+  <style>
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Hiragino Sans','Yu Gothic',sans-serif;background:#f8f4ed;color:#333;line-height:1.8}
+    .hero img{width:100%;display:block;}
+    nav{background:#fff;border-top:3px solid #2d6c4f;display:flex;justify-content:center;gap:32px;padding:16px 20px;box-shadow:0 2px 8px rgba(0,0,0,.06);flex-wrap:wrap;}
+    nav a{text-decoration:none;color:#333;font-size:1rem;display:flex;align-items:center;gap:6px;}
+    nav a:hover{color:#2d6c4f;}
+    .container{max-width:800px;margin:auto;padding:40px 20px}
+    .card{background:#fff;border-radius:18px;padding:36px;box-shadow:0 10px 25px rgba(0,0,0,.06);margin-bottom:28px}
+    h1{color:#2d6c4f;font-size:1.6rem;border-bottom:3px solid #2d6c4f;padding-bottom:12px;line-height:1.6;}
+    h2{color:#2d6c4f;border-left:5px solid #2d6c4f;padding-left:12px;margin-top:40px;font-size:1.25rem;}
+    h3{color:#2d6c4f;font-size:1.05rem;margin-top:28px;}
+    .date{color:#888;font-size:0.9em;margin-bottom:24px;}
+    .badge{display:inline-block;background:#e8f3ea;color:#2d6c4f;padding:6px 12px;border-radius:30px;font-size:.85rem;margin-bottom:16px}
+    .lead{background:#f0f7f3;border-radius:12px;padding:20px 24px;margin:20px 0;font-size:0.98rem;}
+    .point{background:#e8f3ea;border-left:4px solid #2d6c4f;padding:16px 20px;border-radius:0 12px 12px 0;margin:20px 0;}
+    .step{background:#fff8ee;border:1px solid #f0d8b0;border-radius:12px;padding:18px 22px;margin:16px 0;}
+    .step-num{display:inline-block;background:#2d6c4f;color:#fff;width:28px;height:28px;line-height:28px;text-align:center;border-radius:50%;font-weight:bold;margin-right:8px;}
+    .step h3{margin-top:0;display:inline;}
+    table.compare{width:100%;border-collapse:collapse;margin:20px 0;font-size:0.95rem;}
+    table.compare th,table.compare td{border:1px solid #ddd;padding:10px 12px;text-align:left;}
+    table.compare th{background:#e8f3ea;color:#2d6c4f;}
+    table.compare td.o{color:#2d6c4f;font-weight:bold;}
+    table.compare td.x{color:#c62828;}
+    .toc{background:#fafafa;border:1px solid #eee;border-radius:12px;padding:18px 24px;margin:24px 0;}
+    .toc h3{margin:0 0 10px;font-size:1rem;color:#2d6c4f;}
+    .toc ol{margin:0;padding-left:20px;}
+    .toc li{margin:5px 0;}
+    .toc a{color:#2d6c4f;text-decoration:none;}
+    .toc a:hover{text-decoration:underline;}
+    .img-row{display:flex;gap:16px;align-items:center;margin:24px 0;flex-wrap:wrap;}
+    .img-row img{border-radius:10px;}
+    .back{margin-top:36px;}
+    .back a{color:#2d6c4f;text-decoration:none;}
+    footer{text-align:center;padding:40px 20px;color:#777}
+    @media(max-width:600px){nav{gap:16px;font-size:.9rem;}.card{padding:24px;}}
+  </style>
+</head>
+<body>
+
+<div class="hero">
+  <img src="hero.png" alt="まっさんの地域づくりブログ">
+</div>
+
+<nav>
+  <a href="index.html">🏠 ホーム</a>
+  <a href="blog.html">📖 ブログ</a>
+  <a href="diary.html">📝 町会長日記</a>
+  <a href="profile.html">🌿 プロフィール</a>
+</nav>
+
+<div class="container">
+  <div class="card">
+    <span class="badge">町会運営・デジタル化</span>
+    <h1>町会の回覧板をLINEでデジタル化する方法｜実際にやってみた手順とコツ</h1>
+    <div class="date">2026年6月28日</div>
+
+    <div class="lead">
+      「町会の回覧板、もっとラクにならないかな?」「LINEで回覧板ってできるの?」<br>
+      そんな思いから、私の町会では<strong>LINEのオープンチャットを使った回覧板</strong>を導入しました。この記事では、実際にやってみて分かった<strong>導入の手順・かかった準備・高齢者への配慮・登録者を増やすコツ</strong>を、これから始める方に向けてまとめます。
+    </div>
+
+    <div class="toc">
+      <h3>📖 この記事の内容</h3>
+      <ol>
+        <li><a href="#why">なぜLINE回覧板なのか(紙の課題)</a></li>
+        <li><a href="#type">どのLINEを使う?(公式アカウントとの違い)</a></li>
+        <li><a href="#steps">導入の手順(4ステップ)</a></li>
+        <li><a href="#merit">メリットとデメリット</a></li>
+        <li><a href="#senior">高齢者・スマホが苦手な方への配慮</a></li>
+        <li><a href="#tips">登録者を増やすコツ</a></li>
+        <li><a href="#summary">まとめ</a></li>
+      </ol>
+    </div>
+
+    <h2 id="why">① なぜLINE回覧板なのか(紙の課題)</h2>
+
+    <p>従来の紙の回覧板は、長年地域を支えてきた大切な仕組みです。ただ、実際に運用してみると、今の生活スタイルに合わない場面が増えてきました。</p>
+
+    <ul>
+      <li>回るのに時間がかかり、自分の家に届く頃にはイベントが終わっていることも</li>
+      <li>どこで止まっているのか分からない</li>
+      <li>紛失することがある</li>
+      <li>若い世代がほとんど見ない</li>
+      <li>急ぎの連絡にはまったく向いていない</li>
+    </ul>
+
+    <p>とくに<strong>急ぎの連絡</strong>(防災・不審者情報など)は、紙だけでは間に合いません。そこで「紙を補う仕組み」としてLINEを使うことにしました。</p>
+
+    <h2 id="type">② どのLINEを使う?(公式アカウントとの違い)</h2>
+
+    <p>町会でLINEを使う方法はいくつかあります。私の町会では、いろいろ比較した結果<strong>「LINEオープンチャット」</strong>を選びました。</p>
+
+    <table class="compare">
+      <tr><th>種類</th><th>特徴</th><th>町会向き?</th></tr>
+      <tr><td>LINE公式アカウント</td><td>配信数に制限あり。お店向き</td><td class="x">△</td></tr>
+      <tr><td class="o">LINEオープンチャット</td><td>無料・匿名で参加できる・人数制限ゆるい</td><td class="o">◎ おすすめ</td></tr>
+      <tr><td>普通のグループLINE</td><td>電話番号を知られる・管理が大変</td><td class="x">×</td></tr>
+    </table>
+
+    <div class="point">
+      <strong>オープンチャットを選んだ理由</strong><br>
+      ① 無料で人数の心配が少ない<br>
+      ② <strong>匿名(ニックネーム)で参加できる</strong>ので、ご近所に電話番号や本名を知られずに済む<br>
+      ③ 鍵(参加コード)をつければ、知らない人は入ってこられない
+    </div>
+
+    <h2 id="steps">③ 導入の手順(4ステップ)</h2>
+
+    <div class="step">
+      <h3><span class="step-num">1</span>オープンチャットを作る</h3>
+      <p>スマホのLINEアプリから、オープンチャットを新規作成します。名前は「○○町会 回覧板」など、分かりやすいものに。参加には<strong>「参加コード(合言葉)」</strong>を設定して、関係者以外が入れないようにします。</p>
+    </div>
+
+    <div class="step">
+      <h3><span class="step-num">2</span>参加用のQRコードを用意する</h3>
+      <p>オープンチャットの招待リンクから、<strong>QRコード</strong>を作ります。無料のQRコード作成サイトを使えば、スマホで読み取るだけで参加できるQRが作れます。これを回覧資料に印刷します。</p>
+    </div>
+
+    <div class="step">
+      <h3><span class="step-num">3</span>紙の回覧板で案内する</h3>
+      <p>少し皮肉ですが、<strong>最初の案内は紙の回覧板で行うのが確実</strong>です。「LINEでも回覧が見られるようになりました」という案内文と、QRコード・参加コードを載せた紙を全戸に回覧します。</p>
+    </div>
+
+    <div class="step">
+      <h3><span class="step-num">4</span>紙とLINEを併用して運用する</h3>
+      <p>登録した方にはLINEで、していない方には紙で。<strong>どちらでも情報が届く形</strong>でスタートします。回覧資料はLINEにも投稿し、回覧の遅れによる情報格差をなくします。</p>
+    </div>
+
+    <h2 id="merit">④ メリットとデメリット</h2>
+
+    <h3>✅ メリット</h3>
+    <ul>
+      <li>情報が<strong>一瞬で全員に届く</strong>(回覧の順番待ちがない)</li>
+      <li>防災・不審者情報など<strong>急ぎの連絡に強い</strong></li>
+      <li>過去の連絡をさかのぼって見返せる</li>
+      <li>匿名なので気軽に参加できる</li>
+    </ul>
+
+    <h3>⚠️ デメリット・注意点</h3>
+    <ul>
+      <li>スマホを使わない方には届かない → <strong>紙との併用が必須</strong></li>
+      <li>参加を強制しないこと</li>
+      <li>個人情報・写真の扱いに配慮が必要</li>
+    </ul>
+
+    <h2 id="senior">⑤ 高齢者・スマホが苦手な方への配慮</h2>
+
+    <p>デジタル化でいちばん大切なのは、<strong>「全員が使えるわけではない」という前提を忘れないこと</strong>です。</p>
+
+    <div class="point">
+      LINEはあくまで<strong>「便利な方は使ってください」という選択肢のひとつ</strong>。ご高齢の世帯やスマホを使わない方には、これまで通り紙の回覧板をきちんとお届けします。「デジタルか紙か」の二択ではなく、<strong>両方を続ける</strong>のが現実的です。
+    </div>
+
+    <p>むしろ「紙をなくす」ことを目的にすると、取り残される方が出てしまいます。目的は「<strong>情報をより早く・確実に届けること</strong>」。そのための選択肢を増やす、という考え方が大切だと感じています。</p>
+
+    <h2 id="tips">⑥ 登録者を増やすコツ</h2>
+
+    <p>私の町会では、約200世帯のうち、スタート時は15人ほどの登録でした。そこから少しずつ広げて、現在は約50人になっています。やってみて効果を感じたコツがこちらです。</p>
+
+    <ul>
+      <li><strong>回覧やイベントのたびに繰り返し案内する</strong>(一度では伝わらない)</li>
+      <li>回覧資料の2枚目などに、毎回QRコードを載せておく</li>
+      <li>「登録した人にはこの情報がすぐ届きます」と<strong>メリットを具体的に伝える</strong></li>
+      <li>イベントの写真や役立つ情報をLINEに流して、「入っていると得」と感じてもらう</li>
+      <li>焦らず、世帯の半数を当面の目標にする</li>
+    </ul>
+
+    <p>大事なのは<strong>コツコツ続けること</strong>。一度の案内で一気に増えることはありません。回覧のたびに少しずつ、を積み重ねるのが結局いちばんの近道でした。</p>
+
+    <h2 id="summary">⑦ まとめ</h2>
+
+    <p>町会の回覧板のLINE化は、決して「紙をなくす」ためのものではありません。<strong>紙とデジタルを併用して、情報をより早く・確実に届ける</strong>ための工夫です。</p>
+
+    <div class="lead">
+      ✔ LINEは<strong>オープンチャット</strong>が町会向き(無料・匿名・鍵付き)<br>
+      ✔ 最初の案内は<strong>紙の回覧板</strong>が確実<br>
+      ✔ <strong>高齢者には紙を続ける</strong>。デジタルは選択肢のひとつ<br>
+      ✔ 登録者は<strong>繰り返しの案内でコツコツ</strong>増やす
+    </div>
+
+    <p>同じように「町会のデジタル化」で悩んでいる方の参考になればうれしいです。小さな一歩からでも、地域の情報共有は確実に良くなっていきます。一緒に、無理のないデジタル化を進めていきましょう。</p>
+
+    <div class="back">
+      <a href="blog.html">← ブログ一覧へ</a>
+    </div>
+  </div>
+</div>
+
+<footer>© 2026 まっさんの地域づくりブログ</footer>
+
+</body>
+</html>
