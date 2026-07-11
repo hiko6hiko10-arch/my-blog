@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>公民館の予約表を紙からスマホにしてみた｜AIと一緒に半日で作った話 | まっさんの地域づくりブログ</title>
+  <meta name="description" content="4団体で共用している公民館の予約管理を、AIに相談しながらGoogleの無料の仕組みでスマホ化しました。かかった費用は0円。つまずいたポイントも正直に書きます。">
+  <meta property="og:title" content="公民館の予約表を紙からスマホにしてみた｜AIと一緒に半日で作った話 | まっさんの地域づくりブログ">
+  <meta property="og:description" content="4団体で共用している公民館の予約管理を、AIに相談しながらGoogleの無料の仕組みでスマホ化しました。かかった費用は0円。つまずいたポイントも正直に書きます。">
+  <meta property="og:image" content="https://chokaicho-blog.com/hero.png">
+  <meta property="og:url" content="https://chokaicho-blog.com/article11.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="まっさんの地域づくりブログ">
+  <link rel="canonical" href="https://chokaicho-blog.com/article11.html">
+  <style>
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Hiragino Sans','Yu Gothic',sans-serif;background:#f8f4ed;color:#333;line-height:1.8}
+    .hero img{width:100%;display:block;}
+    nav{background:#fff;border-top:3px solid #2d6c4f;display:flex;justify-content:center;gap:32px;padding:16px 20px;box-shadow:0 2px 8px rgba(0,0,0,.06);flex-wrap:wrap;}
+    nav a{text-decoration:none;color:#333;font-size:1rem;display:flex;align-items:center;gap:6px;}
+    nav a:hover{color:#2d6c4f;}
+    .container{max-width:800px;margin:auto;padding:40px 20px}
+    .card{background:#fff;border-radius:18px;padding:36px;box-shadow:0 10px 25px rgba(0,0,0,.06);}
+    .article-header{margin-bottom:28px;}
+    .meta{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:16px;}
+    .date{color:#888;font-size:0.9rem;}
+    h1{color:#2d6c4f;font-size:1.5rem;margin:0 0 8px;line-height:1.5;}
+    h2{color:#2d6c4f;font-size:1.1rem;margin:32px 0 8px;border-left:4px solid #2d6c4f;padding-left:12px;}
+    .badge{display:inline-block;background:#e8f3ea;color:#2d6c4f;padding:5px 12px;border-radius:20px;font-size:.85rem;}
+    .point{background:#e8f3ea;border-left:4px solid #2d6c4f;padding:14px 18px;border-radius:0 12px 12px 0;margin:20px 0;font-size:0.95rem;}
+    .alert{background:#fff8e8;border-left:4px solid #e6a817;padding:14px 18px;border-radius:0 12px 12px 0;margin:20px 0;font-size:0.95rem;}
+    .back{margin-top:28px;}
+    .back a{color:#2d6c4f;text-decoration:none;font-size:0.95rem;}
+    footer{text-align:center;padding:40px 20px;color:#777}
+    @media(max-width:600px){nav{gap:16px;font-size:.9rem;}.card{padding:24px;}}
+  </style>
+</head>
+<body>
+
+<div class="hero">
+  <img src="hero.png" alt="まっさんの地域づくりブログ">
+</div>
+
+<nav>
+  <a href="index.html">🏠 ホーム</a>
+  <a href="blog.html">📖 ブログ</a>
+  <a href="diary.html">📝 町会長日記</a>
+  <a href="profile.html">🌿 プロフィール</a>
+</nav>
+
+<div class="container">
+  <div class="card">
+    <div class="article-header">
+      <div class="meta">
+        <span class="date">2026年7月11日</span>
+        <span class="badge">町会運営・デジタル化</span>
+      </div>
+      <h1>公民館の予約表を紙からスマホにしてみた｜AIと一緒に半日で作った話</h1>
+    </div>
+
+    <p>こんにちは、まっさんです。</p>
+
+    <p>LINE回覧板に続く、うちの町会のデジタル化第2弾。今回は<strong>公民館の予約管理をスマホでできるようにした話</strong>です。しかもかかった費用は0円。半日でできました。</p>
+
+    <h2>🏠 公民館の予約、こうやって管理してました</h2>
+
+    <p>うちの地域の公民館は、老人会・地車会・二つの町会の4団体で共用しています。部屋は1階の畳間と2階の板間の2つ。</p>
+
+    <p>予約の管理はどうしてたかというと、公民館の壁に貼った<strong>手書きの月間予定表</strong>です。「21日の午前は老人会」「11日の夜は地車会」と、使う人がそれぞれ書き込んでいくスタイル。</p>
+
+    <p>これ、長年これでやってきてるので回ってはいるんです。ただ、困りごとがありました。</p>
+
+    <p><strong>予定表を見るには、公民館まで行かなあかん。</strong></p>
+
+    <p>「来週の木曜、部屋空いてるかな」と思っても、家からはわからない。わざわざ見に行くか、誰かに電話で聞くか。書き込みが重なって二重予約になりかけたこともあります。紙は紙で確実なんですが、「確認のためだけに足を運ぶ」のはやっぱりしんどい。</p>
+
+    <h2>🤖 AIに相談してみた</h2>
+
+    <p>そこで、最近仕事でもブログでも世話になっているAI（Claude）に相談してみました。「公民館の予約を4団体で共有できる仕組み、作られへんかな」と。</p>
+
+    <p>返ってきた提案は、Googleカレンダーと連動した予約ページを作るというもの。私がやったことは、正直に言うと</p>
+
+    <p>・どんな機能がほしいかを日本語で伝える<br>
+    ・Googleの設定画面で、言われたとおりにボタンを押す<br>
+    ・できたものをスマホで触ってみて「ここが使いにくい」と感想を言う</p>
+
+    <p>これだけです。プログラムのコードは1行も書いてません。というか書けません。それでも半日後には、ちゃんと動くものができていました。</p>
+
+    <h2>📱 できたもの</h2>
+
+    <p>スマホでページを開くと、こんなことができます。</p>
+
+    <div class="point">
+      ・<strong>カレンダー表示</strong>で今月〜2ヶ月先までの予約状況がひと目でわかる（1階は赤、2階は青の印）<br>
+      ・日付をタップすると、その日の予約の詳細（時間・団体名）が見える<br>
+      ・そのまま<strong>団体名・部屋・時間を選んで予約</strong>できる<br>
+      ・同じ部屋で時間が重なると「すでに予約が入っています」と止めてくれるので、<strong>二重予約が起きない</strong><br>
+      ・予約すると4桁の「取消番号」が発行されて、その番号があれば<strong>取り消しもスマホから</strong>できる
+    </div>
+
+    <p>予約はぜんぶGoogleカレンダーに自動で記録されるので、管理する側（私）は特別な作業をしなくていい。仕組みはGoogleの無料サービスの範囲内なので、<strong>サーバー代もソフト代も0円</strong>です。</p>
+
+    <h2>🕳 つまずいたところ（正直コーナー）</h2>
+
+    <p>順調そうに書きましたが、例によってつまずきポイントはありました。</p>
+
+    <p><strong>その1、Googleの設定で迷子になる。</strong>途中で「設定をオンにしてください」という工程があったんですが、私はGoogleのアカウントを複数使っているせいで、<strong>別のアカウントの設定を延々といじってた</strong>ことがありました。AIから「別のアカウントで設定を変えた可能性が高いです」と指摘されて、ようやく気づく始末。</p>
+
+    <p><strong>その2、自分のスマホで開けない。</strong>完成していざスマホで開いたら、エラー画面。これも原因は複数アカウントでした。Googleのサービスは、複数アカウントを使っているとたまにこういうことが起きるらしいです。家族のスマホでは普通に開けたので、ひとまずそれで運用開始。同じ状況の方は、Chromeアプリで開くか、使っていないアカウントをログアウトすると直るようです。</p>
+
+    <div class="alert">
+      デジタル化の敵は、技術やなくて<strong>「アカウントどれで入ってるか問題」</strong>。LINE回覧板のときも思いましたが、つまずくのはだいたいこういう地味なところです。
+    </div>
+
+    <h2>🌱 紙とデジタル、併用でいきます</h2>
+
+    <p>これで紙の予定表を廃止！……とは、しません。</p>
+
+    <p>LINE回覧板のときと同じ考え方で、<strong>紙は紙で残しつつ、スマホでも見られる・予約できるようにする</strong>。公民館の壁の予定表に慣れている方はそのままでいいし、家から確認したい人はスマホで。入口が増えただけで、誰かのやり方を奪ったわけやない。ここは大事にしたいところです。</p>
+
+    <p>それと、いきなり回覧で全戸に案内……というのもやりません。一般の方が公民館を使うことはまずないので、<strong>まずは公民館の鍵を持っている数人だけで小さく運用してみる</strong>ことにしました。しばらく試してみて、使い勝手や困りごとを直してから、必要な人に少しずつ広げていくつもりです。</p>
+
+    <h2>💡 やってみて思うこと</h2>
+
+    <p>去年の私なら「予約システムを作る」なんて、業者さんに頼んで何十万円の世界やと思ってました。それが今は、AIに日本語で相談しながら半日・0円でできてしまう。</p>
+
+    <p>もちろん、私が特別なわけではないです。パソコンは苦手やし、途中で何回もつまずいてます。ただ、<strong>「わからんなりに、AIに聞きながらやってみる」</strong>だけで、町会の困りごとがひとつ減った。これは同じように地域の役をやっている方に、けっこう希望のある話やないかなと思います。</p>
+
+    <p>しばらく運用してみて、実際に使われたか・困りごとが出たかは、また正直に報告します。</p>
+
+    <p>ほな、また。</p>
+
+    <div class="back">
+      <a href="blog.html">← ブログ一覧に戻る</a>
+    </div>
+  </div>
+</div>
+
+<footer>© 2026 まっさんの地域づくりブログ</footer>
+
+</body>
+</html>
