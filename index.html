@@ -67,6 +67,19 @@
     .pcal-legend{text-align:center;font-size:.8rem;color:#777;margin-top:12px;}
     .pcal-legend .lg{display:inline-block;width:8px;height:8px;border-radius:50%;margin:0 4px 0 12px;vertical-align:middle;}
     .card.pcal-flash{box-shadow:0 0 0 3px #2d6c4f,0 10px 25px rgba(0,0,0,.06);}
+    .psearch-row{display:flex;gap:8px;}
+    #psearchInput{flex:1;min-width:0;padding:10px;font-size:15px;border:1px solid #ccc;border-radius:8px;background:#fff;}
+    #psearchBtn{border:none;background:#2d6c4f;color:#fff;border-radius:8px;padding:0 18px;font-size:14px;font-weight:600;cursor:pointer;}
+    #psearchBtn:hover{background:#245840;}
+    #psearchResults{margin-top:10px;font-size:.9rem;}
+    .psr-item{padding:9px 0;border-bottom:1px solid #eee;}
+    .psr-item:last-child{border-bottom:none;}
+    .psr-item a{color:#2d6c4f;text-decoration:none;font-weight:600;}
+    .psr-item a:hover{text-decoration:underline;}
+    .psr-date{color:#888;font-size:.78rem;margin-top:1px;}
+    .psr-snippet{color:#555;font-size:.82rem;line-height:1.55;margin-top:3px;}
+    .psr-snippet mark{background:#ffe9a8;padding:0 1px;}
+    .psr-note{color:#888;font-size:.85rem;}
     footer{text-align:center;padding:40px 20px;color:#777}
     @media(max-width:600px){nav{gap:20px;font-size:.9rem;}}
   </style>
@@ -316,6 +329,15 @@
 
   <aside class="side-col">
   <div class="card">
+    <h2 class="section-title" style="margin-top:0;">🔍 記事を検索</h2>
+    <div class="psearch-row">
+      <input type="search" id="psearchInput" placeholder="例: 盆踊り、防災、LINE">
+      <button type="button" id="psearchBtn">検索</button>
+    </div>
+    <div id="psearchResults"></div>
+  </div>
+
+  <div class="card">
     <h2 class="section-title" style="margin-top:0;">📅 投稿カレンダー</h2>
     <div class="pcal-head">
       <button type="button" id="pcalPrev" aria-label="前の月">‹</button>
@@ -412,6 +434,144 @@
   document.getElementById('pcalPrev').onclick = function() { if (viewM > minM) { viewM--; render(); } };
   document.getElementById('pcalNext').onclick = function() { if (viewM < maxM) { viewM++; render(); } };
   render();
+})();
+
+// ---- 記事検索 ----
+(function() {
+  var index = null;    // 記事データの一覧（初回検索時に読み込む）
+  var loading = null;
+  var input = document.getElementById('psearchInput');
+  var btn = document.getElementById('psearchBtn');
+  var box = document.getElementById('psearchResults');
+
+  // sitemap.xml から記事ページの一覧を取得し、各ページの本文を読み込む
+  function buildIndex() {
+    return fetch('sitemap.xml')
+      .then(function(r) { return r.text(); })
+      .then(function(xml) {
+        var doc = new DOMParser().parseFromString(xml, 'text/xml');
+        var paths = Array.prototype.map.call(doc.querySelectorAll('loc'), function(l) {
+          return new URL(l.textContent.trim()).pathname;
+        }).filter(function(p) { return /(article|diary)\d+\.html$/.test(p); });
+
+        return Promise.all(paths.map(function(p) {
+          return fetch(p)
+            .then(function(r) { return r.ok ? r.text() : ''; })
+            .then(function(html) {
+              if (!html) return null;
+              var d = new DOMParser().parseFromString(html, 'text/html');
+              var h1 = d.querySelector('h1');
+              var title = (h1 ? h1.textContent : (d.title || '').split('|')[0]).trim();
+              var date = '';
+              var dateEl = d.querySelector('.date');
+              var diaryDate = d.querySelector('.diary-date-big');
+              if (dateEl) {
+                date = dateEl.textContent.trim();
+              } else if (diaryDate) {
+                date = diaryDate.textContent.replace(/\s+/g, '');
+                if (!/日$/.test(date)) date += '日';
+              }
+              var body = d.querySelector('.card') || d.body;
+              var text = (body.textContent || '').replace(/\s+/g, ' ');
+              return { url: p.replace(/^\//, ''), title: title, date: date, text: text };
+            })
+            .catch(function() { return null; });
+        }));
+      })
+      .then(function(list) { return list.filter(Boolean); });
+  }
+
+  function escapeHtml(s) {
+    return s.replace(/[&<>"]/g, function(c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+    });
+  }
+
+  function renderResults(hits, terms) {
+    if (hits.length === 0) {
+      box.innerHTML = '<div class="psr-note">見つかりませんでした。別の言葉で試してみてください。</div>';
+      return;
+    }
+    box.innerHTML = '';
+    var note = document.createElement('div');
+    note.className = 'psr-note';
+    note.textContent = hits.length + '件見つかりました';
+    box.appendChild(note);
+
+    hits.slice(0, 10).forEach(function(p) {
+      var item = document.createElement('div');
+      item.className = 'psr-item';
+
+      var a = document.createElement('a');
+      a.href = p.url;
+      a.textContent = p.title;
+      item.appendChild(a);
+
+      if (p.date) {
+        var dt = document.createElement('div');
+        dt.className = 'psr-date';
+        dt.textContent = p.date;
+        item.appendChild(dt);
+      }
+
+      // 最初にヒットした場所の前後を抜粋表示（ヒット語を黄色マーカー）
+      var lower = p.text.toLowerCase();
+      var pos = -1, hitTerm = '';
+      terms.forEach(function(w) {
+        var i = lower.indexOf(w);
+        if (i !== -1 && (pos === -1 || i < pos)) { pos = i; hitTerm = w; }
+      });
+      if (pos !== -1) {
+        var start = Math.max(0, pos - 25);
+        var raw = p.text.substring(start, Math.min(p.text.length, pos + 55));
+        var snippet = (start > 0 ? '…' : '') + escapeHtml(raw) + '…';
+        terms.forEach(function(w) {
+          snippet = snippet.replace(new RegExp('(' + w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi'), '<mark>$1</mark>');
+        });
+        var sn = document.createElement('div');
+        sn.className = 'psr-snippet';
+        sn.innerHTML = snippet;
+        item.appendChild(sn);
+      }
+      box.appendChild(item);
+    });
+  }
+
+  function doSearch() {
+    var q = input.value.trim();
+    if (!q) { box.innerHTML = ''; return; }
+    var terms = q.toLowerCase().split(/[\s、,]+/).filter(Boolean);
+
+    function run() {
+      var hits = index.filter(function(p) {
+        var t = (p.title + ' ' + p.text).toLowerCase();
+        return terms.every(function(w) { return t.indexOf(w) !== -1; });
+      });
+      // タイトルにヒットした記事を先に、あとは新しい順（sitemap順）
+      hits.sort(function(a, b) {
+        var at = terms.some(function(w) { return a.title.toLowerCase().indexOf(w) !== -1; }) ? 0 : 1;
+        var bt = terms.some(function(w) { return b.title.toLowerCase().indexOf(w) !== -1; }) ? 0 : 1;
+        return at - bt;
+      });
+      renderResults(hits, terms);
+    }
+
+    if (index) { run(); return; }
+    box.innerHTML = '<div class="psr-note">検索の準備をしています…</div>';
+    if (!loading) loading = buildIndex();
+    loading.then(function(list) {
+      index = list;
+      run();
+    }).catch(function() {
+      box.innerHTML = '<div class="psr-note">読み込みに失敗しました。ページを再読み込みして試してください。</div>';
+      loading = null;
+    });
+  }
+
+  btn.onclick = doSearch;
+  input.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') { e.preventDefault(); doSearch(); }
+  });
 })();
 </script>
 
