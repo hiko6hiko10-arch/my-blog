@@ -39,6 +39,26 @@
     .section-title{color:#2d6c4f;font-size:1.2rem;border-bottom:3px solid #2d6c4f;padding-bottom:8px;margin-bottom:20px;}
     .date{color:#888;font-size:0.9em;margin-bottom:6px;}
     .diary-badge{background:#fef3e2;color:#b07d2a;}
+    .pcal-head{display:flex;align-items:center;justify-content:center;gap:18px;margin-bottom:12px;}
+    .pcal-head button{border:none;background:#e8f3ea;color:#2d6c4f;border-radius:8px;width:38px;height:38px;font-size:16px;cursor:pointer;}
+    .pcal-head button:disabled{opacity:.3;cursor:default;}
+    #pcalLabel{font-weight:700;color:#2d6c4f;min-width:120px;text-align:center;font-size:1.05rem;}
+    .pcal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;max-width:440px;margin:0 auto;}
+    .pcal-dow{text-align:center;font-size:.8rem;color:#888;padding:2px 0;}
+    .pcal-dow.sun{color:#c0392b;}
+    .pcal-dow.sat{color:#2f5fa8;}
+    .pcal-day{position:relative;text-align:center;padding:8px 0 14px;border-radius:8px;font-size:.95rem;background:#fafaf7;}
+    .pcal-day.blank{background:transparent;}
+    .pcal-day.today{outline:2px solid #2d6c4f;font-weight:700;}
+    .pcal-day.has-post{cursor:pointer;background:#e8f3ea;font-weight:600;}
+    .pcal-day.has-post:hover{background:#d5e9da;}
+    .pcal-dots{position:absolute;left:0;right:0;bottom:4px;line-height:0;}
+    .pcal-dot{display:inline-block;width:6px;height:6px;border-radius:50%;margin:0 1px;}
+    .pcal-dot.blog{background:#2d6c4f;}
+    .pcal-dot.diary{background:#b07d2a;}
+    .pcal-legend{text-align:center;font-size:.8rem;color:#777;margin-top:12px;}
+    .pcal-legend .lg{display:inline-block;width:8px;height:8px;border-radius:50%;margin:0 4px 0 12px;vertical-align:middle;}
+    .card.pcal-flash{box-shadow:0 0 0 3px #2d6c4f,0 10px 25px rgba(0,0,0,.06);}
     footer{text-align:center;padding:40px 20px;color:#777}
     @media(max-width:600px){nav{gap:20px;font-size:.9rem;}}
   </style>
@@ -61,6 +81,17 @@
   <div class="profile">
     <h2>こんにちは、まっさんです。</h2>
     <p>地域活動の中で感じたこと、町会運営の工夫、誰かの役に立つリアルな経験を発信しています。地域が少しでも明るく、住みやすくなるヒントを届けたいと思っています。</p>
+  </div>
+
+  <div class="card">
+    <h2 class="section-title" style="margin-top:0;">📅 投稿カレンダー</h2>
+    <div class="pcal-head">
+      <button type="button" id="pcalPrev" aria-label="前の月">‹</button>
+      <div id="pcalLabel"></div>
+      <button type="button" id="pcalNext" aria-label="次の月">›</button>
+    </div>
+    <div class="pcal-grid" id="pcalGrid"></div>
+    <div class="pcal-legend">印のある日をタップすると記事に移動します<span class="lg" style="background:#2d6c4f;"></span>ブログ<span class="lg" style="background:#b07d2a;"></span>町会長日記</div>
   </div>
 
   <h2 class="section-title">📋 すべての投稿</h2>
@@ -283,6 +314,88 @@
 </div>
 
 <footer>© 2026 まっさんの地域づくりブログ</footer>
+
+<script>
+(function() {
+  // ページ内の投稿カードから日付を自動で読み取る
+  var posts = {}; // 'y-m-d' → {el: カード要素, blog: true/false, diary: true/false}
+  var minM = null, maxM = null;
+  document.querySelectorAll('.container > .card').forEach(function(card) {
+    var dateEl = card.querySelector('.date');
+    if (!dateEl) return;
+    var m = dateEl.textContent.match(/(\d{4})年(\d{1,2})月(\d{1,2})日/);
+    if (!m) return;
+    var y = Number(m[1]), mo = Number(m[2]), d = Number(m[3]);
+    var key = y + '-' + mo + '-' + d;
+    var type = card.querySelector('.diary-badge') ? 'diary' : 'blog';
+    if (!posts[key]) posts[key] = { el: card };
+    posts[key][type] = true;
+    var ym = y * 12 + (mo - 1);
+    if (minM === null || ym < minM) minM = ym;
+    if (maxM === null || ym > maxM) maxM = ym;
+  });
+
+  var today = new Date();
+  var nowM = today.getFullYear() * 12 + today.getMonth();
+  if (minM === null) { minM = nowM; maxM = nowM; }
+  if (nowM > maxM) maxM = nowM;
+  var viewM = Math.min(nowM, maxM);
+
+  function render() {
+    var y = Math.floor(viewM / 12), mo = viewM % 12 + 1;
+    document.getElementById('pcalLabel').textContent = y + '年' + mo + '月';
+    document.getElementById('pcalPrev').disabled = viewM <= minM;
+    document.getElementById('pcalNext').disabled = viewM >= maxM;
+
+    var grid = document.getElementById('pcalGrid');
+    grid.innerHTML = '';
+    ['日', '月', '火', '水', '木', '金', '土'].forEach(function(w, i) {
+      var h = document.createElement('div');
+      h.className = 'pcal-dow' + (i === 0 ? ' sun' : i === 6 ? ' sat' : '');
+      h.textContent = w;
+      grid.appendChild(h);
+    });
+
+    var firstDow = new Date(y, mo - 1, 1).getDay();
+    var days = new Date(y, mo, 0).getDate();
+    for (var i = 0; i < firstDow; i++) {
+      var b = document.createElement('div');
+      b.className = 'pcal-day blank';
+      grid.appendChild(b);
+    }
+    for (var d = 1; d <= days; d++) {
+      var cell = document.createElement('div');
+      cell.className = 'pcal-day';
+      var key = y + '-' + mo + '-' + d;
+      if (y === today.getFullYear() && mo === today.getMonth() + 1 && d === today.getDate()) {
+        cell.className += ' today';
+      }
+      cell.appendChild(document.createTextNode(d));
+      var p = posts[key];
+      if (p) {
+        cell.className += ' has-post';
+        var dots = document.createElement('span');
+        dots.className = 'pcal-dots';
+        if (p.blog) { var s1 = document.createElement('span'); s1.className = 'pcal-dot blog'; dots.appendChild(s1); }
+        if (p.diary) { var s2 = document.createElement('span'); s2.className = 'pcal-dot diary'; dots.appendChild(s2); }
+        cell.appendChild(dots);
+        cell.onclick = (function(el) {
+          return function() {
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            el.classList.add('pcal-flash');
+            setTimeout(function() { el.classList.remove('pcal-flash'); }, 2000);
+          };
+        })(p.el);
+      }
+      grid.appendChild(cell);
+    }
+  }
+
+  document.getElementById('pcalPrev').onclick = function() { if (viewM > minM) { viewM--; render(); } };
+  document.getElementById('pcalNext').onclick = function() { if (viewM < maxM) { viewM++; render(); } };
+  render();
+})();
+</script>
 
 </body>
 </html>
