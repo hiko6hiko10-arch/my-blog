@@ -22,7 +22,13 @@
     '.pn-related a{display:block;color:#2d6c4f;text-decoration:none;font-size:.9rem;padding:6px 0;border-bottom:1px dashed #e5e5e5;}' +
     '.pn-related a:last-child{border-bottom:none;}' +
     '.pn-related a:hover{text-decoration:underline;}' +
-    '.pn-related .pn-date{color:#999;font-size:.78rem;margin-left:8px;}';
+    '.pn-related .pn-date{color:#999;font-size:.78rem;margin-left:8px;}' +
+    '.pn-share{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:18px;}' +
+    '.pn-share-label{font-weight:700;color:#2d6c4f;font-size:.95rem;}' +
+    '.pn-share a.line-btn{display:inline-block;background:#06C755;color:#fff;text-decoration:none;font-weight:700;font-size:.9rem;padding:9px 18px;border-radius:8px;}' +
+    '.pn-share a.line-btn:hover{background:#05b34c;}' +
+    '.pn-share button.copy-btn{border:1px solid #c3d4c8;background:#fff;color:#2d6c4f;font-size:.9rem;font-weight:600;padding:9px 16px;border-radius:8px;cursor:pointer;font-family:inherit;}' +
+    '.pn-share button.copy-btn:hover{background:#eef5f0;}';
   document.head.appendChild(style);
 
   fetch('index.html')
@@ -52,6 +58,52 @@
 
       var wrap = document.createElement('div');
       wrap.className = 'pn-wrap';
+
+      // この記事をシェア（LINEで送る・リンクをコピー）
+      var canonical = document.querySelector('link[rel="canonical"]');
+      var pageUrl = canonical ? canonical.href : location.href;
+
+      var share = document.createElement('div');
+      share.className = 'pn-share';
+
+      var label = document.createElement('span');
+      label.className = 'pn-share-label';
+      label.textContent = 'この記事をシェア:';
+      share.appendChild(label);
+
+      var lineBtn = document.createElement('a');
+      lineBtn.className = 'line-btn';
+      lineBtn.href = 'https://social-plugins.line.me/lineit/share?url=' + encodeURIComponent(pageUrl);
+      lineBtn.target = '_blank';
+      lineBtn.rel = 'noopener';
+      lineBtn.textContent = 'LINEで送る';
+      share.appendChild(lineBtn);
+
+      var copyBtn = document.createElement('button');
+      copyBtn.type = 'button';
+      copyBtn.className = 'copy-btn';
+      copyBtn.textContent = 'リンクをコピー';
+      copyBtn.onclick = function () {
+        function done() {
+          copyBtn.textContent = 'コピーしました！';
+          setTimeout(function () { copyBtn.textContent = 'リンクをコピー'; }, 2000);
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(pageUrl).then(done);
+        } else {
+          // 古いブラウザ向けの保険
+          var ta = document.createElement('textarea');
+          ta.value = pageUrl;
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          done();
+        }
+      };
+      share.appendChild(copyBtn);
+
+      wrap.appendChild(share);
 
       var row = document.createElement('div');
       row.className = 'pn-row';
