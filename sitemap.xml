@@ -71,6 +71,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://chokaicho-blog.com/diary021.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://chokaicho-blog.com/diary020.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
