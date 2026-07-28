@@ -4,9 +4,15 @@
   var box = document.getElementById('postNav');
   if (!box) return;
 
-  var here = location.pathname.split('/').pop();
+  // URLは「/article11」でも「/article11.html」でも同じ記事を指すため、
+  // 比較する前にどちらの形でも同じ文字列になるよう揃える
+  function slug(u) {
+    u = (u || '').split('?')[0].split('#')[0].split('/').pop();
+    return u.replace(/\.html$/, '');
+  }
+
+  var here = slug(location.pathname);
   if (!here) return;
-  if (!/\.html$/.test(here)) here += '.html'; // 拡張子なしURL（/article11 など）にも対応
 
   // 見た目（このファイル内で完結させる）
   var style = document.createElement('style');
@@ -31,7 +37,7 @@
     '.pn-share button.copy-btn:hover{background:#eef5f0;}';
   document.head.appendChild(style);
 
-  fetch('index.html')
+  fetch('/')
     .then(function (r) { return r.text(); })
     .then(function (html) {
       var d = new DOMParser().parseFromString(html, 'text/html');
@@ -49,7 +55,7 @@
 
       var i = -1;
       for (var k = 0; k < cards.length; k++) {
-        if (cards[k].url === here) { i = k; break; }
+        if (slug(cards[k].url) === here) { i = k; break; }
       }
       if (i === -1) return;
 

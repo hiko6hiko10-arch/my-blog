@@ -25,6 +25,7 @@
   <link rel="canonical" href="https://chokaicho-blog.com/">
   <style>
     picture{display:contents}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
     body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Hiragino Sans','Yu Gothic',sans-serif;background:#f8f4ed;color:#333;line-height:1.8}
     .hero img{width:100%;display:block;}
     nav{background:#fff;border-top:3px solid #2d6c4f;display:flex;justify-content:center;gap:40px;padding:16px 20px;box-shadow:0 2px 8px rgba(0,0,0,.06);}
@@ -93,6 +94,8 @@
 <body>
 
 <div class="hero">
+  <!-- ヒーロー画像に描かれている文字と同じ内容を、検索エンジン・読み上げソフト向けに見出しとして置く -->
+  <h1 class="sr-only">まっさんの地域づくりブログ｜大阪の町会長が綴る町会運営・地域交流の記録</h1>
   <picture><source srcset="hero.webp" type="image/webp"><img src="hero.jpg" alt="まっさんの地域づくりブログ"></picture>
 </div>
 
