@@ -41,6 +41,7 @@
   }
   </script>
   <style>
+    picture{display:contents}
     body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Hiragino Sans','Yu Gothic',sans-serif;background:#f8f4ed;color:#333;line-height:1.8}
     .hero img{width:100%;display:block;}
     nav{background:#fff;border-top:3px solid #2d6c4f;display:flex;justify-content:center;gap:32px;padding:16px 20px;box-shadow:0 2px 8px rgba(0,0,0,.06);flex-wrap:wrap;}
@@ -65,7 +66,7 @@
 <body>
 
 <div class="hero">
-  <img src="hero.jpg" alt="まっさんの地域づくりブログ">
+  <picture><source srcset="hero.webp" type="image/webp"><img src="hero.jpg" alt="まっさんの地域づくりブログ"></picture>
 </div>
 
 <nav>
@@ -117,7 +118,7 @@
 
     <p>スマホでページを開くと、こんな画面が出ます。</p>
 
-    <img loading="lazy" src="kominkan-app1.png" alt="公民館予約システムの予約状況カレンダー画面。予約のある日に部屋別の色付きの印が付く" style="width:100%;border-radius:12px;border:1px solid #eee;margin:12px 0;">
+    <picture><source srcset="kominkan-app1.webp" type="image/webp"><img loading="lazy" src="kominkan-app1.png" alt="公民館予約システムの予約状況カレンダー画面。予約のある日に部屋別の色付きの印が付く" style="width:100%;border-radius:12px;border:1px solid #eee;margin:12px 0;"></picture>
 
     <p>できることはこんな感じです。</p>
 
@@ -131,7 +132,7 @@
 
     <p>予約のフォームはこれだけ。団体と部屋を選んで、日付と時間、目的を入れるだけです。</p>
 
-    <img loading="lazy" src="kominkan-app2.png" alt="公民館予約システムの予約フォーム画面。団体名・部屋・利用日・時刻・利用目的を入力する" style="width:100%;border-radius:12px;border:1px solid #eee;margin:12px 0;">
+    <picture><source srcset="kominkan-app2.webp" type="image/webp"><img loading="lazy" src="kominkan-app2.png" alt="公民館予約システムの予約フォーム画面。団体名・部屋・利用日・時刻・利用目的を入力する" style="width:100%;border-radius:12px;border:1px solid #eee;margin:12px 0;"></picture>
 
     <p>予約はぜんぶGoogleカレンダーに自動で記録されるので、管理する側（私）は特別な作業をしなくていい。仕組みはGoogleの無料サービスの範囲内なので、<strong>サーバー代もソフト代も0円</strong>です。</p>
 

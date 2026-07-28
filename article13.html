@@ -41,6 +41,7 @@
   }
   </script>
   <style>
+    picture{display:contents}
     body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Hiragino Sans','Yu Gothic',sans-serif;background:#f8f4ed;color:#333;line-height:1.8}
     .hero img{width:100%;display:block;}
     nav{background:#fff;border-top:3px solid #2d6c4f;display:flex;justify-content:center;gap:32px;padding:16px 20px;box-shadow:0 2px 8px rgba(0,0,0,.06);flex-wrap:wrap;}
@@ -65,7 +66,7 @@
 <body>
 
 <div class="hero">
-  <img src="hero.jpg" alt="まっさんの地域づくりブログ">
+  <picture><source srcset="hero.webp" type="image/webp"><img src="hero.jpg" alt="まっさんの地域づくりブログ"></picture>
 </div>
 
 <nav>
@@ -101,7 +102,7 @@
 
     <h2>📱 作ったもの：世帯ごとの「専用URL」が会員証になる</h2>
 
-    <img loading="lazy" src="kaiinsho-mockup.png" alt="デジタル会員証のイメージ画面。町会名・氏名・会員番号と、スタッフに提示するQRコードが表示されている（画像は仮のデータです）" style="width:100%;max-width:360px;display:block;margin:12px auto;border-radius:12px;border:1px solid #eee;">
+    <picture><source srcset="kaiinsho-mockup.webp" type="image/webp"><img loading="lazy" src="kaiinsho-mockup.png" alt="デジタル会員証のイメージ画面。町会名・氏名・会員番号と、スタッフに提示するQRコードが表示されている（画像は仮のデータです）" style="width:100%;max-width:360px;display:block;margin:12px auto;border-radius:12px;border:1px solid #eee;"></picture>
     <p style="text-align:center;color:#888;font-size:0.85rem;margin-top:-4px;">※ 画像は説明用の仮データです（実際の会員情報ではありません）</p>
 
     <div class="point">
